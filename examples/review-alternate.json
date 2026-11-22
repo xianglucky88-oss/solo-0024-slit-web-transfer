@@ -93,6 +93,24 @@
         "length": 200,
         "allowance": 10
       }
+    ],
+    "batch_orders": [
+      {
+        "id": "跨一单",
+        "children": ["甲卷", "乙卷"],
+        "length": 200,
+        "allowance": 10,
+        "demand": 2,
+        "priority": 1
+      },
+      {
+        "id": "乙长单",
+        "children": ["乙卷"],
+        "length": 500,
+        "allowance": 0,
+        "demand": 1,
+        "priority": 2
+      }
     ]
   }
 }

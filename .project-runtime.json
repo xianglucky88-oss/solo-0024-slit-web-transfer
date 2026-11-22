@@ -79,6 +79,14 @@
       "command": "python3 -m slitweb.check_flow yield_plan"
     },
     {
+      "workflow_id": "batch",
+      "command": "python3 -m slitweb.check_flow batch"
+    },
+    {
+      "workflow_id": "batch_cuts",
+      "command": "python3 -m slitweb.check_flow batch_cuts"
+    },
+    {
       "workflow_id": "losses",
       "command": "python3 -m slitweb.check_flow losses"
     }

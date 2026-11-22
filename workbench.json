@@ -178,6 +178,39 @@
       "optional": true
     },
     {
+      "id": "batch",
+      "label": "联合配料",
+      "columns": [
+        "id",
+        "children",
+        "priority",
+        "demand",
+        "quoted",
+        "count",
+        "shortage",
+        "state",
+        "evidence"
+      ],
+      "optional": true
+    },
+    {
+      "id": "batch_cuts",
+      "label": "下刀区间",
+      "columns": [
+        "id",
+        "child",
+        "start",
+        "end",
+        "length",
+        "origin",
+        "span",
+        "segment",
+        "state",
+        "evidence"
+      ],
+      "optional": true
+    },
+    {
       "id": "losses",
       "label": "分因长度核账",
       "columns": [
@@ -234,7 +267,11 @@
     "sparse": "邻点稀疏",
     "unbalanced": "双端峰数不对称",
     "cycle": "完整循环",
-    "sequence": "序列未闭合"
+    "sequence": "序列未闭合",
+    "met": "已配足",
+    "short": "部分缺件",
+    "cut": "下刀件",
+    "remnant": "余料留存"
   },
   "columns": {
     "area": "面积",
@@ -284,7 +321,14 @@
     "mixed": "双因禁保长度",
     "eligible": "可保长度",
     "blocked": "重大疵点长度",
-    "blind": "缺检长度"
+    "blind": "缺检长度",
+    "children": "允许子卷",
+    "priority": "优先级档",
+    "demand": "需求量",
+    "quoted": "单规格报价",
+    "shortage": "缺件数",
+    "span": "母卷幅向区间",
+    "segment": "所在可保段"
   },
   "reconciliation": "exclusion",
   "defaultOperation": "transfer"

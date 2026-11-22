@@ -102,6 +102,40 @@
         "length": 200,
         "allowance": 10
       }
+    ],
+    "batch_orders": [
+      {
+        "id": "乙一单",
+        "children": ["乙卷"],
+        "length": 200,
+        "allowance": 10,
+        "demand": 3,
+        "priority": 1
+      },
+      {
+        "id": "乙二单",
+        "children": ["乙卷"],
+        "length": 100,
+        "allowance": 20,
+        "demand": 2,
+        "priority": 2
+      },
+      {
+        "id": "甲一单",
+        "children": ["甲卷"],
+        "length": 300,
+        "allowance": 0,
+        "demand": 2,
+        "priority": 2
+      },
+      {
+        "id": "合一单",
+        "children": ["甲卷", "乙卷"],
+        "length": 150,
+        "allowance": 0,
+        "demand": 2,
+        "priority": 3
+      }
     ]
   }
 }

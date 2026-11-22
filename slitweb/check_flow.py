@@ -7,6 +7,7 @@ from threading import Thread
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
+from . import batching, domain, reconcile, rules, salvage
 from .server import CONFIG, PREFIX, ROOT, serve
 
 
@@ -36,6 +37,30 @@ def observe(rows, row_id, field, target):
         raise ValueError(f'{row_id}.{field} 为 {actual!r}，应为 {target!r}')
 
 
+def batch_audit(port, data, original, alt, alternate):
+    for raw, evaluated, mode in ((data, original, 'shortage'), (alt, alternate, 'remnant')):
+        model = domain.parse(raw)
+        compiled = domain.evaluate(model)
+        outputs = rules.decide(model, compiled)
+        outputs[CONFIG['reconciliation']] = reconcile.summarize(model, compiled, outputs)
+        runs = salvage.reusable_runs(model, outputs[CONFIG['reconciliation']])
+        orders = batching.read_batch_orders(raw.get('review', {}), model)
+        report = batching.verify(orders, runs, model,
+                                 evaluated['outputs']['batch'], evaluated['outputs']['batch_cuts'])
+        if not report['ok']:
+            raise ValueError('联合配料核对失败：' + '；'.join(report['problems']))
+        rows = evaluated['outputs']['batch']
+        if mode == 'shortage':
+            if any(row['quoted'] < row['demand'] for row in rows) or not any(row['shortage'] for row in rows):
+                raise ValueError('应展示逐规格都报够而联合配料缺件')
+        elif len(report['longest_options']) < 2 or not isclose(report['longest'], max(report['longest_options']), abs_tol=1e-6):
+            raise ValueError('同档完成数相同的摆法应保留最长连续余料')
+    for field, value in (('children', ['未知卷']), ('demand', 0), ('priority', 0)):
+        bad = json.loads(json.dumps(data))
+        bad['review']['batch_orders'][0][field] = value
+        request(port, 'evaluate', bad, status=400)
+
+
 def audit(port, flow):
     review = any(op['id'] == flow and op.get('optional') for op in CONFIG['operations'])
     prefix = 'review-' if review else ''
@@ -56,6 +81,8 @@ def audit(port, flow):
         row, key, value, alt_row, alt_key, alt_value = cases[flow]
         observe(original['outputs'][flow],row,key,value)
         observe(alternate['outputs'][flow],alt_row,alt_key,alt_value)
+        if flow == 'batch':
+            batch_audit(port, data, original, alt, alternate)
         return
     request(port,'seal',bad,status=400)
     left = request(port,'seal',data)[0]

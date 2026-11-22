@@ -47,6 +47,22 @@
     "count",
     4
   ],
+  "batch": [
+    "合一单",
+    "shortage",
+    1,
+    "跨一单",
+    "count",
+    2
+  ],
+  "batch_cuts": [
+    "乙一单/1",
+    "start",
+    120,
+    "甲卷/1/余料",
+    "length",
+    1000
+  ],
   "losses": [
     "甲卷",
     "blocked",
