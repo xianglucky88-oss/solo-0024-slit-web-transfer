@@ -81,6 +81,14 @@
     {
       "workflow_id": "losses",
       "command": "python3 -m slitweb.check_flow losses"
+    },
+    {
+      "workflow_id": "fullwidth",
+      "command": "python3 -m slitweb.check_flow fullwidth"
+    },
+    {
+      "workflow_id": "fullwidth_yield",
+      "command": "python3 -m slitweb.check_flow fullwidth_yield"
     }
   ]
 }

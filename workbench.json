@@ -190,6 +190,35 @@
         "evidence"
       ],
       "optional": true
+    },
+    {
+      "id": "fullwidth",
+      "label": "全幅分段",
+      "columns": [
+        "id",
+        "child",
+        "start",
+        "end",
+        "length",
+        "state",
+        "uncovered",
+        "evidence"
+      ],
+      "optional": true
+    },
+    {
+      "id": "fullwidth_yield",
+      "label": "全幅定尺",
+      "columns": [
+        "id",
+        "child",
+        "count",
+        "length",
+        "used",
+        "remainder",
+        "state"
+      ],
+      "optional": true
     }
   ],
   "values": {
@@ -284,7 +313,8 @@
     "mixed": "双因禁保长度",
     "eligible": "可保长度",
     "blocked": "重大疵点长度",
-    "blind": "缺检长度"
+    "blind": "缺检长度",
+    "uncovered": "未覆盖幅面"
   },
   "reconciliation": "exclusion",
   "defaultOperation": "transfer"

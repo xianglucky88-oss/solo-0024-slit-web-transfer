@@ -1,5 +1,6 @@
 from .contract import enum, ident, interval, invariant, records
 from .geometry import overlap, union_area
+from .intervals import gaps, union
 
 
 def read_inspections(review, model):
@@ -42,4 +43,32 @@ def defect_review(inspections, transfer):
         result.append(dict(id=defect['id'], area=area, total=total, grade=defect['state'],
                            state='marked' if marked else 'clear' if abs(area-total) <= total*1e-12 else 'partial' if rows else 'blind',
                            evidence={'origin': defect['evidence'], 'inspections': [r['id'] for r in rows]}))
+    return result
+
+
+def fullwidth_segments(model, inspections, transfer):
+    result = []
+    length, margin = model['length'], model['margin']
+    for cut in model['cuts']:
+        child = cut['id']
+        width = cut['b'] - cut['a']
+        rows = [r for r in inspections if r['child'] == child]
+        reserved = [(max(0, r['y0']-margin), min(length, r['y1']+margin), r['evidence'])
+                    for r in transfer if r['child'] == child and r['state'] == 'major']
+        bounds = sorted({0, length} | {y for r in rows for y in (r['y0'], r['y1'])}
+                        | {y for a, b, _ in reserved for y in (a, b)})
+        merged = []
+        for a, b in zip(bounds, bounds[1:]):
+            covered = union([(r['x0'], r['x1']) for r in rows if r['y0'] <= a and b <= r['y1']])
+            uncovered = gaps(covered, width)
+            sources = sorted({key for lo, hi, key in reserved if lo <= a < hi})
+            state = ('mixed' if uncovered and sources else 'blocked' if sources
+                     else 'blind' if uncovered else 'eligible')
+            if merged and merged[-1]['state'] == state and merged[-1]['evidence'] == sources \
+                    and merged[-1]['uncovered'] == uncovered:
+                merged[-1].update(end=b, length=b-merged[-1]['start'])
+            else:
+                merged.append(dict(child=child, start=a, end=b, length=b-a, state=state,
+                                   uncovered=uncovered, evidence=sources))
+        result.extend(dict(id=f'{child}/{n}', **row) for n, row in enumerate(merged, 1))
     return result
