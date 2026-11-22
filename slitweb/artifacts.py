@@ -28,11 +28,16 @@ def rows_for(packet, operation):
     return outputs.get(key, []) if operation.get('optional') else outputs[key]
 
 
-def compare(left, right, operations):
+def same_subject(left, right):
     if left['subject'] != right['subject']:
         raise ContractError('两份成果不属于同一对象，不能直接比对', 409)
     if left['schema'] != right['schema']:
         raise ContractError('两份成果的口径版本不一致', 409)
+
+
+def compare(left, right, operations, physical=None):
+    """按记录标识比较两版成果；可选附带按母卷实物位置的对照。"""
+    same_subject(left, right)
     output = []
     for spec in operations:
         key = spec['id']
@@ -44,4 +49,7 @@ def compare(left, right, operations):
                 continue
             state = 'added' if before is None else 'removed' if after is None else 'changed'
             output.append(dict(id=f'{key}/{row_id}', stage=spec['label'], state=state, before=before, after=after))
-    return dict(subject=left['subject'], left=left['digest'], right=right['digest'], rows=output)
+    result = dict(subject=left['subject'], left=left['digest'], right=right['digest'], rows=output)
+    if physical is not None:
+        result['physical'] = physical
+    return result

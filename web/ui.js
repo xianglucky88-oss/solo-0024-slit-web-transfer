@@ -1,6 +1,7 @@
 import { draw } from '/chart.js';
 import { renderRows } from '/result-table.js';
 import { versionPanel } from '/version-panel.js';
+import { clearMigration, renderMigration } from '/migration-panel.js';
 
 const $ = (id) => document.getElementById(id);
 const base = document.body.dataset.prefix;
@@ -34,6 +35,7 @@ function renderOperation(next) {
 
 function show(next) {
   packet = next;
+  clearMigration();
   $('subject').textContent = next.subject;
   $('digest').textContent = next.digest.slice(0, 12);
   draw($('visual'), next, model);
@@ -74,7 +76,8 @@ async function choose(path) {
     $('review-pane').open = true;
     renderOperation(model.operations.find((op) => op.optional).id);
   }
-  note(({ sample:'样例已处理', alternate:'对照样例已处理', 'review-sample':'复核样例已处理' })[path]);
+  note(({ sample:'样例已处理', alternate:'对照样例已处理', 'review-sample':'复核样例已处理',
+    'migration-before':'库前样例已处理，可封存后切换对照','migration-after':'库后样例已处理，可封存后切换对照' })[path]);
 }
 
 function bind(id, action, event = 'click') {
@@ -94,6 +97,8 @@ guarded(async () => {
   bind('sample', () => choose('sample'));
   bind('review-sample', () => choose('review-sample'));
   bind('alternate', () => choose('alternate'));
+  bind('migration-before', () => choose('migration-before'));
+  bind('migration-after', () => choose('migration-after'));
   bind('evaluate', async () => {
     show(await request('evaluate', source()));
     note('已完成数据归约');
@@ -120,11 +125,21 @@ guarded(async () => {
     note('已打开封存版本');
   });
   bind('compare', async () => {
-    const { left, right, rows } = await versions.compare();
+    const { left, right, rows, physical } = await versions.compare();
+    clearMigration();
     for (const button of stageButtons()) button.setAttribute('aria-pressed', 'false');
     $('table-title').textContent = '版本差异';
     renderRows(model, rows, ['id', 'stage', 'state', 'before', 'after'], '差异', { ...model.columns, before: '参照版本', after: '目标版本' });
-    note(`已比较 ${left.slice(0, 8)} 与 ${right.slice(0, 8)}`);
+    if (physical) renderMigration(physical, model);
+    if (!physical) {
+      note(`已比较 ${left.slice(0, 8)} 与 ${right.slice(0, 8)}（缺少实物位置对照）`);
+    } else if (!physical.comparable) {
+      note(physical.reason, 'error');
+    } else if (!physical.totals.released && !physical.totals.restricted && !physical.totals.domain) {
+      note(`已比较 ${left.slice(0, 8)} 与 ${right.slice(0, 8)}：实物位置上没有禁保迁移，损失总长 ${physical.totals.loss_before} → ${physical.totals.loss_after} 毫米`);
+    } else {
+      note(`已比较 ${left.slice(0, 8)} 与 ${right.slice(0, 8)}：损失总长 ${physical.totals.loss_before} → ${physical.totals.loss_after} 毫米`);
+    }
   });
   await versions.refresh();
   await choose('sample');

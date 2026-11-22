@@ -10,7 +10,7 @@ Python 3.11 或以上（含标准库 SQLite），不需要下载包。现代浏�
 python3 -m slitweb.server
 ```
 
-访问 `http://127.0.0.1:8861`。默认把封存成果写入 `.local/slitweb.sqlite`；可传 `--port`、`--db` 覆盖。界面先显示合成首例；可切换对照、导入 JSON、查看证据明细、封存成果、比较同对象版本或下载指定版本。
+访问 `http://127.0.0.1:8861`。默认把封存成果写入 `.local/slitweb.sqlite`；可传 `--port`、`--db` 覆盖。界面先显示合成首例；可切换对照、导入 JSON、查看证据明细、封存成果、比较同对象版本或下载指定版本。版本差异会同时给出按母卷实物位置的迁移区段：继续可保、转为禁保、解除禁保与幅域差异。
 
 ## 手动核对
 
@@ -18,9 +18,18 @@ python3 -m slitweb.server
 python3 -m slitweb.check_flow layout
 python3 -m slitweb.check_flow exclusion
 python3 -m slitweb.check_flow export
+python3 -m slitweb.check_flow migration
 ```
 
 这些命令在临时成果库和临时回环端口运行实际 HTTP 接口，分别核对样例、对照和拒绝路径。`examples` 保存业务示例及可人工核算的观测点。完整命令见 `.project-runtime.json`；自动化测试套件留置，不包含私有验收测试、缺陷任务或参考解答。
+
+### 实物位置迁移
+
+「改绕向早版」「改绕向晚版」是同一母卷的两版样例：晚版改了绕向并把局部缺检挪到另一段实物位置，损失总长恰好仍为 140 毫米。分别封存两版后在成果版本里选择并「查看差异与实物位置」，可看到 340–420 毫米解除禁保、800–880 毫米转为禁保，两段都由缺检证据变化引起；两版幅域不同的部分只列为幅域差异，不按原地修复或新增疵点核计。核对命令：
+
+```sh
+python3 -m slitweb.check_flow migration
+```
 
 ### 扩展复核
 

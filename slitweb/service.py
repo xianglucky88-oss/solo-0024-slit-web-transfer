@@ -1,4 +1,4 @@
-from . import artifacts, domain, reconcile, rules
+from . import artifacts, domain, migration, reconcile, rules
 from .review import analyze_review
 from .contract import ContractError, ident, obj
 
@@ -28,7 +28,9 @@ class Workbench:
         if command == 'compare':
             before = self.read(body.get('left'))
             after = self.read(body.get('right'))
-            return artifacts.compare(before, after, self.config['operations'])
+            artifacts.same_subject(before, after)
+            physical = migration.compare_physical(before, after)
+            return artifacts.compare(before, after, self.config['operations'], physical)
         raise ContractError('没有这个处理入口', 404)
 
     def read(self, key):

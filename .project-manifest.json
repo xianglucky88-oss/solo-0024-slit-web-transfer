@@ -86,6 +86,16 @@
       "id": "version_panel",
       "path": "web/version-panel.js",
       "responsibility": "封存选择、版本读取、比对和下载"
+    },
+    {
+      "id": "migration",
+      "path": "slitweb/migration.py",
+      "responsibility": "按母卷实物位置对照两版禁保区间与长度损失账"
+    },
+    {
+      "id": "migration_panel",
+      "path": "web/migration-panel.js",
+      "responsibility": "实物区段与幅域差异面板"
     }
   ],
   "workflows": [
@@ -275,7 +285,8 @@
       "entry": "POST /slitweb/api/compare",
       "steps": [
         "刀位移动不是原始疵点消失",
-        "异版产生差异，同版无差异，跨对象拒绝"
+        "异版产生差异，同版无差异，跨对象拒绝",
+        "按母卷实物位置分解继续可保、转为禁保、解除禁保及幅域差异"
       ],
       "success": "异版产生差异，同版无差异，跨对象拒绝",
       "failure": "跨对象比对返回 409",
@@ -286,7 +297,9 @@
         "archive",
         "artifacts",
         "version_panel",
-        "result_table"
+        "result_table",
+        "migration",
+        "migration_panel"
       ]
     },
     {
@@ -470,6 +483,28 @@
       ]
     },
     {
+      "id": "migration",
+      "name": "实物位置迁移",
+      "entry": "POST /slitweb/api/compare 的 physical",
+      "steps": [
+        "按母卷实物位置分解继续可保、转为禁保、解除禁保及幅域差异",
+        "改绕向并调整局部缺检时，损失总长可恰好抵消而返工位置不同"
+      ],
+      "success": "同母卷两版损失总长持平仍能指出两段实物位置及改变结论的证据类别",
+      "failure": "跨对象比对返回 409；幅域不同处只记为幅域差异",
+      "verification": "python3 -m slitweb.check_flow migration",
+      "module_ids": [
+        "server",
+        "service",
+        "archive",
+        "artifacts",
+        "migration",
+        "migration_panel",
+        "version_panel",
+        "result_table"
+      ]
+    },
+    {
       "id": "losses",
       "name": "分因长度核账",
       "entry": "POST /slitweb/api/evaluate → outputs.losses",
@@ -489,7 +524,8 @@
         "salvage",
         "artifacts",
         "result_table",
-        "intervals"
+        "intervals",
+        "migration"
       ]
     }
   ],

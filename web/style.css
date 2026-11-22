@@ -35,3 +35,12 @@ dialog{border:1px solid var(--line);border-radius:6px;color:var(--ink);padding:1
 
 .review-pane { margin: .5rem 0; }
 .review-pane > summary { cursor: pointer; font-weight: 650; padding: .45rem 0; }
+.migration-pane { margin-top: 12px; display: grid; gap: 6px; }
+.migration-pane h3 { font-size: 14px; margin: 8px 0 0; color: var(--muted) }
+.migration-summary { display: grid; gap: 2px; margin: 6px 0 2px }
+.migration-summary p { margin: 0; overflow-wrap: anywhere }
+.migration-note { color: var(--muted); margin: 2px 0 }
+.migration-table td { font-variant-numeric: tabular-nums }
+.state[data-state=retained],.state[data-state=released] { color: var(--accent); font-weight: 700 }
+.state[data-state=restricted],.state[data-state=domain],.state[data-state=disjoint] { color: var(--chart); font-weight: 700 }
+.state[data-state=held],.state[data-state=shifted],.state[data-state=moved],.state[data-state=rewound] { color: var(--muted); font-weight: 700 }

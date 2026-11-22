@@ -18,6 +18,7 @@ STATIC = {
     '/ui.js': ('ui.js', 'text/javascript'),
     '/chart.js': ('chart.js', 'text/javascript'),
     '/version-panel.js': ('version-panel.js', 'text/javascript'),
+    '/migration-panel.js': ('migration-panel.js', 'text/javascript'),
     '/result-table.js': ('result-table.js', 'text/javascript'),
     '/style.css': ('style.css', 'text/css'),
 }
@@ -66,7 +67,8 @@ class Handler(BaseHTTPRequestHandler):
             return
         if action == 'config':
             self.response(canonical(CONFIG))
-        elif action in ('sample', 'alternate', 'review-sample', 'review-alternate'):
+        elif action in ('sample', 'alternate', 'review-sample', 'review-alternate',
+                        'migration-before', 'migration-after'):
             self.response((ROOT / 'examples' / (action + '.json')).read_bytes())
         elif action == 'revisions':
             self.response(canonical(wb.archive.list()))

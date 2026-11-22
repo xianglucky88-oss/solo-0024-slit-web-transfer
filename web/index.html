@@ -12,6 +12,7 @@
     <div><p class="eyebrow">卷材质量</p><h1>分切疵点转印台</h1></div>
     <div class="toolbar" aria-label="数据操作">
       <button id="sample">样例</button><button id="alternate">对照样例</button><button id="review-sample">复核样例</button>
+      <button id="migration-before">改绕向早版</button><button id="migration-after">改绕向晚版</button>
       <label class="upload-label">导入数据<input id="upload" type="file" accept=".json,application/json" aria-label="导入数据"></label>
       <button id="evaluate">重新处理</button><button id="seal" class="primary">封存成果</button>
     </div>
@@ -39,8 +40,16 @@
       <div class="revision-tools">
         <label>参照版本<select id="left-version"></select></label>
         <label>目标版本<select id="right-version"></select></label>
-        <button id="inspect">打开目标版本</button><button id="compare">查看差异</button><a class="export-link" id="export" hidden>下载交接资料</a>
+        <button id="inspect">打开目标版本</button><button id="compare">查看差异与实物位置</button><a class="export-link" id="export" hidden>下载交接资料</a>
       </div>
+      <section id="migration-pane" class="migration-pane" aria-label="实物位置迁移" hidden>
+        <div class="migration-summary" id="migration-summary"></div>
+        <h3>按母卷实物位置</h3>
+        <div class="table-scroll"><table id="migration-regions" class="migration-table" hidden></table></div>
+        <h3>幅域差异（不按原地修复核计）</h3>
+        <p id="migration-domain-empty" class="migration-note" hidden>两版幅域一致，没有幅域差异。</p>
+        <div class="table-scroll"><table id="migration-domains" class="migration-table" hidden></table></div>
+      </section>
     </section>
     <details id="source-pane" class="input-pane"><summary>来源数据</summary><textarea id="source" spellcheck="false" aria-label="观测来源数据"></textarea></details>
   </main>

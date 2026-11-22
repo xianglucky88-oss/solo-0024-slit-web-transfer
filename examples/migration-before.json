@@ -1,0 +1,43 @@
+{
+  "id": "绕向卷-31",
+  "width": 100,
+  "length": 1000,
+  "margin": 10,
+  "cuts": [
+    {
+      "id": "丙卷",
+      "a": 5,
+      "b": 95,
+      "winding": "reverse"
+    }
+  ],
+  "defects": [
+    {
+      "id": "压伤",
+      "x0": 30,
+      "x1": 40,
+      "y0": 440,
+      "y1": 480,
+      "grade": "major"
+    }
+  ],
+  "checks": [
+    {
+      "id": "复检一",
+      "child": "丙卷",
+      "start": 0,
+      "end": 580
+    },
+    {
+      "id": "复检二",
+      "child": "丙卷",
+      "start": 660,
+      "end": 1000
+    }
+  ],
+  "query": {
+    "child": "丙卷",
+    "start": 100,
+    "end": 200
+  }
+}

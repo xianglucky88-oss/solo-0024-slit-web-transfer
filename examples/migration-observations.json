@@ -1,0 +1,35 @@
+{
+  "totals": {
+    "loss_before": 140,
+    "loss_after": 140,
+    "delta": 0,
+    "gap_before": 80,
+    "gap_after": 80,
+    "defect_before": 60,
+    "defect_after": 60,
+    "released": 80,
+    "restricted": 80,
+    "domain": 0
+  },
+  "released": [
+    "丙卷@340-420",
+    "state",
+    "released",
+    "cause",
+    "gap"
+  ],
+  "restricted": [
+    "丙卷@800-880",
+    "state",
+    "restricted",
+    "cause",
+    "gap"
+  ],
+  "domain": [
+    "丙卷",
+    "state",
+    "rewound",
+    "before_winding",
+    "reverse"
+  ]
+}

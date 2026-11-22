@@ -36,7 +36,67 @@ def observe(rows, row_id, field, target):
         raise ValueError(f'{row_id}.{field} 为 {actual!r}，应为 {target!r}')
 
 
+def control(port):
+    before_sample = request(port, 'migration-before')[0]
+    after_sample = request(port, 'migration-after')[0]
+    left = request(port, 'seal', before_sample)[0]
+    right = request(port, 'seal', after_sample)[0]
+    left_packet = request(port, f"packet/{left['digest']}")[0]
+    right_packet = request(port, f"packet/{right['digest']}")[0]
+
+    def need(condition, message):
+        if not condition:
+            raise ValueError(message)
+
+    def amounts(packet):
+        rows = packet['outputs']['exclusion']
+        return {state: sum(row['length'] for row in rows if row['state'] == state)
+                for state in ('blocked', 'blind', 'mixed', 'eligible')}
+
+    need(amounts(left_packet) == amounts(right_packet) ==
+         dict(blocked=60, blind=80, mixed=0, eligible=860), '两版分因损失长度应各自持平')
+
+    comparison = request(port, 'compare', dict(left=left['digest'], right=right['digest']))[0]
+    result = comparison['physical']
+    observed = json.loads((ROOT/'examples'/'migration-observations.json').read_text(encoding='utf8'))
+    need(result['comparable'], '同母卷应可按实物位置对照')
+    need(result['totals']['delta'] == 0, '改绕向并调整缺检后损失总长应恰好抵消')
+    need((result['totals']['gap_before'], result['totals']['gap_after']) == (80, 80) and
+         (result['totals']['defect_before'], result['totals']['defect_after']) == (60, 60),
+         '两版缺检与重大损失分项应各自持平')
+    need(result['totals']['released'] == 80 and result['totals']['restricted'] == 80,
+         '应各有一段解除禁保与转为禁保的实物区段')
+    need(all(result['totals'][key] == value for key, value in observed['totals'].items()),
+         '长度合计与样例观测不一致')
+    for name in ('released', 'restricted'):
+        row, key, value, key2, value2 = observed[name]
+        observe(result['regions'], row, key, value)
+        observe(result['regions'], row, key2, value2)
+    domain_row, domain_key, domain_value, key2, value2 = observed['domain']
+    observe(result['domains'], domain_row, domain_key, domain_value)
+    observe(result['domains'], domain_row, key2, value2)
+    need(any(row['state'] == 'rewound' for row in result['domains']), '应报告绕向改变')
+    need(request(port, 'compare', dict(left=left['digest'], right=left['digest']))[0]['rows'] == [],
+         '同版按记录比对仍应无差异')
+
+    moved = request(port, 'seal', request(port, 'sample')[0])[0]
+    shifted = request(port, 'seal', request(port, 'alternate')[0])[0]
+    domain = request(port, 'compare', dict(left=moved['digest'], right=shifted['digest']))[0]['physical']
+    need(domain['totals']['domain'] > 0, '两版幅域不同处应记为幅域差异')
+    need(all(row['cause'] != 'gap' for row in domain['regions'] if row['state'] == 'domain'),
+         '幅域差异不应被当作缺检原地修复')
+
+    other = request(port, 'seal', dict(after_sample, id='不同对象'))[0]
+    request(port, 'compare', dict(left=left['digest'], right=other['digest']), status=409)
+    need(request(port, f"packet/{left['digest']}")[0] == left_packet, '旧封存结果不应随对照改变')
+
+    need(comparison['rows'], '按记录比对旧版能力仍应可用')
+
+
 def audit(port, flow):
+    if flow == 'migration':
+        control(port)
+        return
     review = any(op['id'] == flow and op.get('optional') for op in CONFIG['operations'])
     prefix = 'review-' if review else ''
     data = request(port, prefix+'sample')[0]
@@ -53,9 +113,10 @@ def audit(port, flow):
                 raise ValueError('复核改变了基础口径')
     if flow in original['outputs']:
         cases = json.loads((ROOT/'examples'/(prefix+'observations.json')).read_text(encoding='utf8'))
-        row, key, value, alt_row, alt_key, alt_value = cases[flow]
-        observe(original['outputs'][flow],row,key,value)
-        observe(alternate['outputs'][flow],alt_row,alt_key,alt_value)
+        if flow in cases:
+            row, key, value, alt_row, alt_key, alt_value = cases[flow]
+            observe(original['outputs'][flow],row,key,value)
+            observe(alternate['outputs'][flow],alt_row,alt_key,alt_value)
         return
     request(port,'seal',bad,status=400)
     left = request(port,'seal',data)[0]
@@ -94,7 +155,7 @@ def audit(port, flow):
 
 def main():
     parser = argparse.ArgumentParser(description='运行有界的生产工作流检查')
-    parser.add_argument('flow', choices=[op['id'] for op in CONFIG['operations']]+['seal','compare','export'])
+    parser.add_argument('flow', choices=[op['id'] for op in CONFIG['operations']]+['seal','compare','export','migration'])
     args = parser.parse_args()
     with TemporaryDirectory(prefix=CONFIG['namespace']+'-') as directory:
         with serve(Path(directory)/'observations.sqlite', 0) as server:
