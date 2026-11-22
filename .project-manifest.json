@@ -1,0 +1,509 @@
+{
+  "project_name": "solo-0024-slit-web-transfer",
+  "project_shape": "fullstack",
+  "modules": [
+    {
+      "id": "contract",
+      "path": "slitweb/contract.py",
+      "responsibility": "JSON 与领域字段边界"
+    },
+    {
+      "id": "domain",
+      "path": "slitweb/domain.py",
+      "responsibility": "解析领域单位与归约事实"
+    },
+    {
+      "id": "rules",
+      "path": "slitweb/rules.py",
+      "responsibility": "消费归约证据和约束，产生业务判定"
+    },
+    {
+      "id": "artifacts",
+      "path": "slitweb/artifacts.py",
+      "responsibility": "成果规范编码、摘要与差分"
+    },
+    {
+      "id": "archive",
+      "path": "slitweb/archive.py",
+      "responsibility": "SQLite 历史版本与原子封存"
+    },
+    {
+      "id": "service",
+      "path": "slitweb/service.py",
+      "responsibility": "串联归约、比对和历史读取"
+    },
+    {
+      "id": "server",
+      "path": "slitweb/server.py",
+      "responsibility": "本机 HTTP 及静态界面入口"
+    },
+    {
+      "id": "workbench",
+      "path": "web/ui.js",
+      "responsibility": "页面状态、样例归约、视图切换与图形编排"
+    },
+    {
+      "id": "reconcile",
+      "path": "slitweb/reconcile.py",
+      "responsibility": "联合原始归约事实与业务判定，推导禁保区间"
+    },
+    {
+      "id": "inspection",
+      "path": "slitweb/inspection.py",
+      "responsibility": "复核证据归约"
+    },
+    {
+      "id": "review",
+      "path": "slitweb/review.py",
+      "responsibility": "编排按领域事实驱动的可选复核"
+    },
+    {
+      "id": "salvage",
+      "path": "slitweb/salvage.py",
+      "responsibility": "复核证据归约"
+    },
+    {
+      "id": "intervals",
+      "path": "slitweb/intervals.py",
+      "responsibility": "区间并集和未覆盖缺口"
+    },
+    {
+      "id": "geometry",
+      "path": "slitweb/geometry.py",
+      "responsibility": "子卷坐标投影和复检矩形并集"
+    },
+    {
+      "id": "provenance",
+      "path": "slitweb/provenance.py",
+      "responsibility": "复检矩形回查母卷和疵点跨刀带分摊"
+    },
+    {
+      "id": "result_table",
+      "path": "web/result-table.js",
+      "responsibility": "结果表及结构化证据明细"
+    },
+    {
+      "id": "version_panel",
+      "path": "web/version-panel.js",
+      "responsibility": "封存选择、版本读取、比对和下载"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "layout",
+      "name": "刀位核账",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.layout",
+      "steps": [
+        "间隙算边料，重叠不能形成合法刀组",
+        "甲卷 的 宽度 为 43"
+      ],
+      "success": "甲卷 的 宽度 为 43",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow layout",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "intervals",
+        "provenance"
+      ]
+    },
+    {
+      "id": "transfer",
+      "name": "疵点转印",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.transfer",
+      "steps": [
+        "跨刀带及反绕可改变可返修坐标",
+        "乙卷/亮线 的 走卷起点 为 750"
+      ],
+      "success": "乙卷/亮线 的 走卷起点 为 750",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow transfer",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "geometry",
+        "provenance"
+      ]
+    },
+    {
+      "id": "scrap",
+      "name": "边料追踪",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.scrap",
+      "steps": [
+        "仅落入非保留区域的疵点仍有来源证据",
+        "edge-1 的 来源证据 为 [\"边刺\"]"
+      ],
+      "success": "edge-1 的 来源证据 为 [\"边刺\"]",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow scrap",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "intervals",
+        "provenance"
+      ]
+    },
+    {
+      "id": "coverage",
+      "name": "复检覆盖",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.coverage",
+      "steps": [
+        "局部重复覆盖不能合成全长已检",
+        "乙卷 的 缺口 为 [[740, 900]]"
+      ],
+      "success": "乙卷 的 缺口 为 [[740, 900]]",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow coverage",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "release",
+      "name": "幅面封样",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.release",
+      "steps": [
+        "重大未闭环疵点与盲区有不同判定",
+        "乙卷 的 状态 为 \"blocked\""
+      ],
+      "success": "乙卷 的 状态 为 \"blocked\"",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow release",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "trim",
+      "name": "修剪提议",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.trim",
+      "steps": [
+        "安全边距与可保留连续长段相互制约",
+        "乙卷 的 终点 为 740"
+      ],
+      "success": "乙卷 的 终点 为 740",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow trim",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "trace",
+      "name": "沿卷回查",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.trace",
+      "steps": [
+        "子卷窗口映射回母卷疵点证据",
+        "乙卷 的 起点 为 185"
+      ],
+      "success": "乙卷 的 起点 为 185",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow trace",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "artifacts",
+        "result_table",
+        "provenance"
+      ]
+    },
+    {
+      "id": "exclusion",
+      "name": "禁保区间",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.exclusion",
+      "steps": [
+        "在重大疵点安全边距和复检缺口的边界上拆分走卷轴；同一段可同时受两者约束，只将可保段用于连续修剪。",
+        "乙卷/2 的 状态 为 \"mixed\""
+      ],
+      "success": "乙卷/2 的 状态 为 \"mixed\"",
+      "failure": "非法领域数据返回 400；不产生伪造结果",
+      "verification": "python3 -m slitweb.check_flow exclusion",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "domain",
+        "rules",
+        "reconcile",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "compare",
+      "name": "跨版本比较",
+      "entry": "POST /slitweb/api/compare",
+      "steps": [
+        "刀位移动不是原始疵点消失",
+        "异版产生差异，同版无差异，跨对象拒绝"
+      ],
+      "success": "异版产生差异，同版无差异，跨对象拒绝",
+      "failure": "跨对象比对返回 409",
+      "verification": "python3 -m slitweb.check_flow compare",
+      "module_ids": [
+        "server",
+        "service",
+        "archive",
+        "artifacts",
+        "version_panel",
+        "result_table"
+      ]
+    },
+    {
+      "id": "seal",
+      "name": "封存版本",
+      "entry": "POST /slitweb/api/seal",
+      "steps": [
+        "数据内容复用但上下文不混用",
+        "同输入仅写入一次，旧版不随对照改变"
+      ],
+      "success": "同输入仅写入一次，旧版不随对照改变",
+      "failure": "非法输入不写入",
+      "verification": "python3 -m slitweb.check_flow seal",
+      "module_ids": [
+        "server",
+        "service",
+        "archive",
+        "artifacts",
+        "version_panel",
+        "result_table"
+      ]
+    },
+    {
+      "id": "export",
+      "name": "导出交接",
+      "entry": "GET /slitweb/api/export/<摘要>",
+      "steps": [
+        "指定版本而不是读取最新活动状态",
+        "下载头有效且内容完整保留历史快照"
+      ],
+      "success": "下载头有效且内容完整保留历史快照",
+      "failure": "未知版本返回 404",
+      "verification": "python3 -m slitweb.check_flow export",
+      "module_ids": [
+        "server",
+        "service",
+        "archive",
+        "artifacts",
+        "version_panel"
+      ]
+    },
+    {
+      "id": "face",
+      "name": "幅面复检",
+      "entry": "POST /slitweb/api/evaluate → outputs.face",
+      "steps": [
+        "实际检验矩形做并集，和走卷长度覆盖分开",
+        "把归约值、状态和来源明细写入 outputs.face，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow face",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "inspection",
+        "artifacts",
+        "result_table",
+        "intervals",
+        "geometry"
+      ]
+    },
+    {
+      "id": "defect_review",
+      "name": "疵点复核",
+      "entry": "POST /slitweb/api/evaluate → outputs.defect_review",
+      "steps": [
+        "转印范围与同卷复检窗取交；标记优先，完全覆盖才可判为未复现",
+        "把归约值、状态和来源明细写入 outputs.defect_review，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow defect_review",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "inspection",
+        "artifacts",
+        "result_table",
+        "intervals",
+        "geometry"
+      ]
+    },
+    {
+      "id": "origin",
+      "name": "复检反查",
+      "entry": "POST /slitweb/api/evaluate → outputs.origin",
+      "steps": [
+        "宽向和纵向同时还原到母卷并回查疵点",
+        "把归约值、状态和来源明细写入 outputs.origin，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow origin",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "inspection",
+        "artifacts",
+        "result_table",
+        "geometry",
+        "provenance"
+      ]
+    },
+    {
+      "id": "shared",
+      "name": "母卷疵点分摊",
+      "entry": "POST /slitweb/api/evaluate → outputs.shared",
+      "steps": [
+        "核对子卷与边料共同保留的原始疵点宽度",
+        "把归约值、状态和来源明细写入 outputs.shared，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow shared",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "inspection",
+        "artifacts",
+        "result_table",
+        "provenance"
+      ]
+    },
+    {
+      "id": "runs",
+      "name": "连续可利用段",
+      "entry": "POST /slitweb/api/evaluate → outputs.runs",
+      "steps": [
+        "合并相邻可保段但不跨禁保区，记录母卷纵向范围",
+        "把归约值、状态和来源明细写入 outputs.runs，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow runs",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "salvage",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "yield_plan",
+      "name": "短卷产量",
+      "entry": "POST /slitweb/api/evaluate → outputs.yield_plan",
+      "steps": [
+        "各连续段独立容纳定尺与段内切口留量，绝不跨段拼接",
+        "把归约值、状态和来源明细写入 outputs.yield_plan，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow yield_plan",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "salvage",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "losses",
+      "name": "分因长度核账",
+      "entry": "POST /slitweb/api/evaluate → outputs.losses",
+      "steps": [
+        "重大、缺检、双因三类长度互斥，同可保长度核对整卷",
+        "把归约值、状态和来源明细写入 outputs.losses，随增强包封存并供历史回读"
+      ],
+      "success": "业务样例与对照的值和证据契合固定观测",
+      "failure": "复核输入引用非法或超出边界时返回 400；不封存",
+      "verification": "python3 -m slitweb.check_flow losses",
+      "module_ids": [
+        "server",
+        "service",
+        "domain",
+        "rules",
+        "review",
+        "salvage",
+        "artifacts",
+        "result_table",
+        "intervals"
+      ]
+    }
+  ],
+  "complexity": {
+    "mechanisms": [
+      "error_propagation",
+      "capacity",
+      "policy_rules",
+      "lineage",
+      "export_freeze",
+      "versioning_audit",
+      "idempotency",
+      "batch_transaction",
+      "snapshot_consistency"
+    ]
+  }
+}

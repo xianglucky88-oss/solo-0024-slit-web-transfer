@@ -1,0 +1,86 @@
+{
+  "language": "Python 3.11+ / JavaScript ES modules",
+  "project_shape": "fullstack",
+  "source_extensions": [
+    ".py",
+    ".js",
+    ".css",
+    ".html"
+  ],
+  "build_command": "python3 -m compileall -q slitweb && node --input-type=module --check < web/ui.js && node --input-type=module --check < web/chart.js && node --input-type=module --check < web/result-table.js && node --input-type=module --check < web/version-panel.js",
+  "testing": "deferred",
+  "workflow_checks": [
+    {
+      "workflow_id": "layout",
+      "command": "python3 -m slitweb.check_flow layout"
+    },
+    {
+      "workflow_id": "transfer",
+      "command": "python3 -m slitweb.check_flow transfer"
+    },
+    {
+      "workflow_id": "scrap",
+      "command": "python3 -m slitweb.check_flow scrap"
+    },
+    {
+      "workflow_id": "coverage",
+      "command": "python3 -m slitweb.check_flow coverage"
+    },
+    {
+      "workflow_id": "release",
+      "command": "python3 -m slitweb.check_flow release"
+    },
+    {
+      "workflow_id": "trim",
+      "command": "python3 -m slitweb.check_flow trim"
+    },
+    {
+      "workflow_id": "trace",
+      "command": "python3 -m slitweb.check_flow trace"
+    },
+    {
+      "workflow_id": "exclusion",
+      "command": "python3 -m slitweb.check_flow exclusion"
+    },
+    {
+      "workflow_id": "compare",
+      "command": "python3 -m slitweb.check_flow compare"
+    },
+    {
+      "workflow_id": "seal",
+      "command": "python3 -m slitweb.check_flow seal"
+    },
+    {
+      "workflow_id": "export",
+      "command": "python3 -m slitweb.check_flow export"
+    },
+    {
+      "workflow_id": "face",
+      "command": "python3 -m slitweb.check_flow face"
+    },
+    {
+      "workflow_id": "defect_review",
+      "command": "python3 -m slitweb.check_flow defect_review"
+    },
+    {
+      "workflow_id": "origin",
+      "command": "python3 -m slitweb.check_flow origin"
+    },
+    {
+      "workflow_id": "shared",
+      "command": "python3 -m slitweb.check_flow shared"
+    },
+    {
+      "workflow_id": "runs",
+      "command": "python3 -m slitweb.check_flow runs"
+    },
+    {
+      "workflow_id": "yield_plan",
+      "command": "python3 -m slitweb.check_flow yield_plan"
+    },
+    {
+      "workflow_id": "losses",
+      "command": "python3 -m slitweb.check_flow losses"
+    }
+  ]
+}

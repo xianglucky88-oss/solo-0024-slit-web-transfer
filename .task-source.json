@@ -1,0 +1,4685 @@
+{
+  "task_source_schema_version": 1,
+  "cc_feedback_profile": "cc-feedback-2611",
+  "project_domain": "数据工程",
+  "project_subdirection": "其他",
+  "supported_task_types": [
+    "功能开发",
+    "功能优化",
+    "质量保障",
+    "技术讨论",
+    "问题排查与诊断",
+    "泛Agent需求",
+    "项目维护"
+  ],
+  "type_coverage": {
+    "功能开发": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 25 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py",
+        "slitweb/artifacts.py"
+      ]
+    },
+    "功能优化": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 25 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py",
+        "slitweb/artifacts.py"
+      ]
+    },
+    "质量保障": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 15 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py"
+      ]
+    },
+    "技术讨论": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 15 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py"
+      ]
+    },
+    "问题排查与诊断": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 15 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py"
+      ]
+    },
+    "泛Agent需求": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 15 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py"
+      ]
+    },
+    "项目维护": {
+      "status": "supported",
+      "reason": "在 15 条领域工作流核对到 15 条源码机会；不计为已准入题目。",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py",
+        "slitweb/geometry.py",
+        "slitweb/provenance.py",
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py",
+        "slitweb/inspection.py",
+        "slitweb/review.py"
+      ]
+    },
+    "Bugfix": {
+      "status": "no_verified_defect",
+      "reason": "无已核实可复现缺陷作为题目；验证发现的问题在交付前修正。"
+    },
+    "代码重构": {
+      "status": "unsupported",
+      "reason": "当前归约与归档边界已分开，暂无核实的不改变领域行为且足够困难的职责重构方向。"
+    },
+    "依赖升级与迁移": {
+      "status": "unsupported",
+      "reason": "当前离线标准库与 SQLite 环境，未验证独立兼容迁移目标或真实旧制品。"
+    },
+    "部署运维": {
+      "status": "unsupported",
+      "reason": "只声明本机单进程离线运行，没有已核实的部署切换或生产恢复证据。"
+    }
+  },
+  "prompt_contract": {
+    "schema_version": 1,
+    "mode": "integrated",
+    "baseline_tier": "deep-task-ready",
+    "generation_scope": {
+      "mode": "all_supported"
+    },
+    "minimum_active_prompts": {
+      "功能开发": 20,
+      "功能优化": 20,
+      "质量保障": 2,
+      "技术讨论": 2,
+      "问题排查与诊断": 2,
+      "泛Agent需求": 10,
+      "项目维护": 2
+    },
+    "minimum_anchors": {
+      "功能开发": 25,
+      "功能优化": 25,
+      "质量保障": 15,
+      "技术讨论": 15,
+      "问题排查与诊断": 15,
+      "泛Agent需求": 15,
+      "项目维护": 15
+    },
+    "capacity_floor": {
+      "modules": 8,
+      "workflows": 10,
+      "mechanisms": 8,
+      "entities": 8,
+      "state_machines": 5,
+      "extension_seams": 12,
+      "tension_points": 10
+    }
+  },
+  "entities": [
+    {
+      "id": "layout",
+      "label": "刀位核账结果",
+      "relations": [
+        "packet.outputs.layout"
+      ],
+      "invariants": [
+        "间隙算边料，重叠不能形成合法刀组"
+      ]
+    },
+    {
+      "id": "transfer",
+      "label": "疵点转印结果",
+      "relations": [
+        "packet.outputs.transfer"
+      ],
+      "invariants": [
+        "跨刀带及反绕可改变可返修坐标"
+      ]
+    },
+    {
+      "id": "scrap",
+      "label": "边料追踪结果",
+      "relations": [
+        "packet.outputs.scrap"
+      ],
+      "invariants": [
+        "仅落入非保留区域的疵点仍有来源证据"
+      ]
+    },
+    {
+      "id": "coverage",
+      "label": "复检覆盖结果",
+      "relations": [
+        "packet.outputs.coverage"
+      ],
+      "invariants": [
+        "局部重复覆盖不能合成全长已检"
+      ]
+    },
+    {
+      "id": "release",
+      "label": "封样判定结果",
+      "relations": [
+        "packet.outputs.release"
+      ],
+      "invariants": [
+        "重大未闭环疵点与盲区有不同判定"
+      ]
+    },
+    {
+      "id": "trim",
+      "label": "连续长段结果",
+      "relations": [
+        "packet.outputs.trim"
+      ],
+      "invariants": [
+        "安全边距与可保留连续长段相互制约"
+      ]
+    },
+    {
+      "id": "trace",
+      "label": "母卷回查结果",
+      "relations": [
+        "packet.outputs.trace"
+      ],
+      "invariants": [
+        "子卷窗口映射回母卷疵点证据"
+      ]
+    },
+    {
+      "id": "exclusion",
+      "label": "禁保区间结果",
+      "relations": [
+        "packet.outputs.exclusion"
+      ],
+      "invariants": [
+        "在重大疵点安全边距和复检缺口的边界上拆分走卷轴；同一段可同时受两者约束，只将可保段用于连续修剪。"
+      ]
+    },
+    {
+      "id": "packet",
+      "label": "历史成果",
+      "relations": [
+        "source",
+        "outputs"
+      ],
+      "invariants": [
+        "绑定原始数据、结论与版本摘要"
+      ]
+    },
+    {
+      "id": "face",
+      "label": "幅面复检",
+      "relations": [
+        "packet.outputs.face"
+      ],
+      "invariants": [
+        "实际检验矩形做并集，和走卷长度覆盖分开"
+      ]
+    },
+    {
+      "id": "defect_review",
+      "label": "疵点复核",
+      "relations": [
+        "packet.outputs.defect_review"
+      ],
+      "invariants": [
+        "转印范围与同卷复检窗取交；标记优先，完全覆盖才可判为未复现"
+      ]
+    },
+    {
+      "id": "origin",
+      "label": "复检反查",
+      "relations": [
+        "packet.outputs.origin"
+      ],
+      "invariants": [
+        "宽向和纵向同时还原到母卷并回查疵点"
+      ]
+    },
+    {
+      "id": "shared",
+      "label": "母卷疵点分摊",
+      "relations": [
+        "packet.outputs.shared"
+      ],
+      "invariants": [
+        "核对子卷与边料共同保留的原始疵点宽度"
+      ]
+    },
+    {
+      "id": "runs",
+      "label": "连续可利用段",
+      "relations": [
+        "packet.outputs.runs"
+      ],
+      "invariants": [
+        "合并相邻可保段但不跨禁保区，记录母卷纵向范围"
+      ]
+    },
+    {
+      "id": "yield_plan",
+      "label": "短卷产量",
+      "relations": [
+        "packet.outputs.yield_plan"
+      ],
+      "invariants": [
+        "各连续段独立容纳定尺与段内切口留量，绝不跨段拼接"
+      ]
+    },
+    {
+      "id": "losses",
+      "label": "分因长度核账",
+      "relations": [
+        "packet.outputs.losses"
+      ],
+      "invariants": [
+        "重大、缺检、双因三类长度互斥，同可保长度核对整卷"
+      ]
+    }
+  ],
+  "state_machines": [
+    {
+      "subject": "coverage",
+      "states": [
+        "blind",
+        "covered"
+      ],
+      "transitions": [
+        "输入归约→blind",
+        "输入归约→covered"
+      ],
+      "invariants": [
+        "有效窗口填满缺口"
+      ]
+    },
+    {
+      "subject": "release",
+      "states": [
+        "blocked",
+        "pending",
+        "ready"
+      ],
+      "transitions": [
+        "输入归约→blocked",
+        "输入归约→pending",
+        "输入归约→ready"
+      ],
+      "invariants": [
+        "疵点或盲区变化后重算"
+      ]
+    },
+    {
+      "subject": "trim",
+      "states": [
+        "blocked",
+        "proposed"
+      ],
+      "transitions": [
+        "输入归约→blocked",
+        "输入归约→proposed"
+      ],
+      "invariants": [
+        "出现合格连续区间"
+      ]
+    },
+    {
+      "subject": "transfer",
+      "states": [
+        "minor",
+        "major"
+      ],
+      "transitions": [
+        "输入归约→minor",
+        "输入归约→major"
+      ],
+      "invariants": [
+        "来源级别随复检数据调整"
+      ]
+    },
+    {
+      "subject": "packet",
+      "states": [
+        "evaluated",
+        "persisted",
+        "downloaded"
+      ],
+      "transitions": [
+        "evaluated->persisted",
+        "persisted->persisted",
+        "persisted->downloaded"
+      ],
+      "invariants": [
+        "内容摘要不能被其他成果重写；同版可多次下载"
+      ]
+    }
+  ],
+  "capability_families": [
+    {
+      "family": "领域刀位核账",
+      "occupied_by": [
+        "layout"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域疵点转印",
+      "occupied_by": [
+        "transfer"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域边料追踪",
+      "occupied_by": [
+        "scrap"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域复检覆盖",
+      "occupied_by": [
+        "coverage"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域封样判定",
+      "occupied_by": [
+        "release"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域连续长段",
+      "occupied_by": [
+        "trim"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域母卷回查",
+      "occupied_by": [
+        "trace"
+      ],
+      "available": true
+    },
+    {
+      "family": "领域禁保区间",
+      "occupied_by": [
+        "exclusion"
+      ],
+      "available": true
+    },
+    {
+      "family": "导出与冻结",
+      "occupied_by": [
+        "packet"
+      ],
+      "available": true
+    },
+    {
+      "family": "幅面复检",
+      "occupied_by": [
+        "face"
+      ],
+      "available": true
+    },
+    {
+      "family": "疵点复核",
+      "occupied_by": [
+        "defect_review"
+      ],
+      "available": true
+    },
+    {
+      "family": "复检反查",
+      "occupied_by": [
+        "origin"
+      ],
+      "available": true
+    },
+    {
+      "family": "母卷疵点分摊",
+      "occupied_by": [
+        "shared"
+      ],
+      "available": true
+    },
+    {
+      "family": "连续可利用段",
+      "occupied_by": [
+        "runs"
+      ],
+      "available": true
+    },
+    {
+      "family": "短卷产量",
+      "occupied_by": [
+        "yield_plan"
+      ],
+      "available": true
+    },
+    {
+      "family": "分因长度核账",
+      "occupied_by": [
+        "losses"
+      ],
+      "available": true
+    }
+  ],
+  "extension_seams": [
+    {
+      "id": "layout-1-dev-extension",
+      "anchor": "刀位核账",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.layout",
+      "distinct_outcome": "母卷拼刀替代方案，逐方案交叉核算条宽与疵点面积取舍",
+      "mechanism": "capacity",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      }
+    },
+    {
+      "id": "transfer-1-dev-extension",
+      "anchor": "疵点转印",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.transfer",
+      "distinct_outcome": "支持一条转印靠两批复检照片拼成同一母卷疵点证据",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      }
+    },
+    {
+      "id": "scrap-1-dev-extension",
+      "anchor": "边料追踪",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.scrap",
+      "distinct_outcome": "为边料另做按疵点位置分段的复用图",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      }
+    },
+    {
+      "id": "coverage-1-dev-extension",
+      "anchor": "复检覆盖",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.coverage",
+      "distinct_outcome": "新增班次交接的未复检区接续包，保留班次和重叠历史",
+      "mechanism": "policy_rules",
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      }
+    },
+    {
+      "id": "release-1-dev-extension",
+      "anchor": "幅面封样",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.release",
+      "distinct_outcome": "新增异议复核交接，保留原发布决定及重审理由",
+      "mechanism": "state_machine",
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      }
+    },
+    {
+      "id": "trim-1-dev-extension",
+      "anchor": "修剪提议",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.trim",
+      "distinct_outcome": "新增多个客户规格的整卷分配计划，避免同一段重复占用",
+      "mechanism": "ranking_reorder",
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      }
+    },
+    {
+      "id": "trace-1-dev-extension",
+      "anchor": "沿卷回查",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.trace",
+      "distinct_outcome": "提供跨成果版本的母卷坐标交叉指认",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      }
+    },
+    {
+      "id": "exclusion-1-dev-extension",
+      "anchor": "禁保区间",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.exclusion",
+      "distinct_outcome": "输出解除局部禁保所需的最小证据集合，区分不可撤销疵点",
+      "mechanism": "policy_rules",
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      }
+    },
+    {
+      "id": "face-1-dev-extension",
+      "anchor": "幅面复检",
+      "entry": "POST /slitweb/api/evaluate → outputs.face",
+      "distinct_outcome": "为未覆盖的二维带面生成可提交给巡检设备的扫查范围",
+      "mechanism": "capacity",
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      }
+    },
+    {
+      "id": "defect_review-1-dev-extension",
+      "anchor": "疵点复核",
+      "entry": "POST /slitweb/api/evaluate → outputs.defect_review",
+      "distinct_outcome": "新增互相矛盾的复检结论交接单，区分不同操作者证据",
+      "mechanism": "state_machine",
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      }
+    },
+    {
+      "id": "origin-1-dev-extension",
+      "anchor": "复检反查",
+      "entry": "POST /slitweb/api/evaluate → outputs.origin",
+      "distinct_outcome": "新增母卷台账浏览器上的复检面空间叠合报告",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      }
+    },
+    {
+      "id": "shared-1-dev-extension",
+      "anchor": "母卷疵点分摊",
+      "entry": "POST /slitweb/api/evaluate → outputs.shared",
+      "distinct_outcome": "增加跨刀带的联合复核排程，协调同一原始疵点的多卷窗口",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      }
+    },
+    {
+      "id": "runs-1-dev-extension",
+      "anchor": "连续可利用段",
+      "entry": "POST /slitweb/api/evaluate → outputs.runs",
+      "distinct_outcome": "为产线同时输出两侧裁切物理坐标与逐段料卡",
+      "mechanism": "capacity",
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      }
+    },
+    {
+      "id": "yield_plan-1-dev-extension",
+      "anchor": "短卷产量",
+      "entry": "POST /slitweb/api/evaluate → outputs.yield_plan",
+      "distinct_outcome": "新增互斥规格联合择优排产及可审计剩余料",
+      "mechanism": "capacity",
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      }
+    },
+    {
+      "id": "losses-1-dev-extension",
+      "anchor": "分因长度核账",
+      "entry": "POST /slitweb/api/evaluate → outputs.losses",
+      "distinct_outcome": "新增多卷汇总的按物理长度加权损失账及异常逐卷回查",
+      "mechanism": "snapshot_consistency",
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      }
+    },
+    {
+      "id": "layout-2-dev-extension",
+      "anchor": "刀位核账",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.layout",
+      "distinct_outcome": "建立跨母卷规格的刀具兼容矩阵，识别相同刀单在不同幅宽的边料风险",
+      "mechanism": "snapshot_consistency",
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "parse",
+          "shared_origins"
+        ]
+      }
+    },
+    {
+      "id": "transfer-2-dev-extension",
+      "anchor": "疵点转印",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.transfer",
+      "distinct_outcome": "新增同一母卷疵点的分级决议版本档，并可核对原观察",
+      "mechanism": "versioning_audit",
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "map_defect",
+          "defect_review"
+        ]
+      }
+    },
+    {
+      "id": "coverage-2-dev-extension",
+      "anchor": "复检覆盖",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.coverage",
+      "distinct_outcome": "生成二维与走卷覆盖矛盾的复检派单并标出幅域",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "union",
+          "face_coverage"
+        ]
+      }
+    },
+    {
+      "id": "release-2-dev-extension",
+      "anchor": "幅面封样",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.release",
+      "distinct_outcome": "新增加盖人工决议的独立签核成果，绑定复核来源",
+      "mechanism": "authorization",
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "decide",
+          "defect_review"
+        ]
+      }
+    },
+    {
+      "id": "trim-2-dev-extension",
+      "anchor": "修剪提议",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.trim",
+      "distinct_outcome": "输出定尺切口在母卷坐标中的成品标签及复算证据",
+      "mechanism": "capacity",
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "order_yield"
+        ]
+      }
+    },
+    {
+      "id": "scrap-2-dev-extension",
+      "anchor": "边料追踪",
+      "entry": "POST /slitweb/api/evaluate 的 outputs.scrap",
+      "distinct_outcome": "建立边料样本盒与母卷疵点对应的保样成果",
+      "mechanism": "lineage",
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "gaps",
+          "shared_origins"
+        ]
+      }
+    },
+    {
+      "id": "origin-2-dev-extension",
+      "anchor": "复检反查",
+      "entry": "POST /slitweb/api/evaluate → outputs.origin",
+      "distinct_outcome": "生成逆向复检坐标跨版对测签收包",
+      "mechanism": "versioning_audit",
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/artifacts.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/artifacts.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "compare"
+        ]
+      }
+    },
+    {
+      "id": "shared-2-dev-extension",
+      "anchor": "母卷疵点分摊",
+      "entry": "POST /slitweb/api/evaluate → outputs.shared",
+      "distinct_outcome": "为母卷级异常触发其子卷的横向波及核查",
+      "mechanism": "policy_rules",
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "summarize"
+        ]
+      }
+    },
+    {
+      "id": "runs-2-dev-extension",
+      "anchor": "连续可利用段",
+      "entry": "POST /slitweb/api/evaluate → outputs.runs",
+      "distinct_outcome": "提供买方只接收全幅经复检材料的独立供给清单",
+      "mechanism": "policy_rules",
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "face_coverage"
+        ]
+      }
+    },
+    {
+      "id": "losses-2-dev-extension",
+      "anchor": "分因长度核账",
+      "entry": "POST /slitweb/api/evaluate → outputs.losses",
+      "distinct_outcome": "生成跨版损失迁移矩阵及保留证据",
+      "mechanism": "versioning_audit",
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/artifacts.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/artifacts.py"
+        ],
+        "functions": [
+          "length_losses",
+          "compare"
+        ]
+      }
+    },
+    {
+      "id": "archive-packet",
+      "anchor": "历史成果",
+      "entry": "指定摘要读取成果",
+      "distinct_outcome": "下游可重用固定来源、合同版本和归约结果",
+      "mechanism": "export_freeze"
+    }
+  ],
+  "tension_points": [
+    {
+      "workflow_id": "layout",
+      "description": "间隙算边料，重叠不能形成合法刀组",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "transfer",
+      "description": "跨刀带及反绕可改变可返修坐标",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "scrap",
+      "description": "仅落入非保留区域的疵点仍有来源证据",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "coverage",
+      "description": "局部重复覆盖不能合成全长已检",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "release",
+      "description": "重大未闭环疵点与盲区有不同判定",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "trim",
+      "description": "安全边距与可保留连续长段相互制约",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "trace",
+      "description": "子卷窗口映射回母卷疵点证据",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "exclusion",
+      "description": "在重大疵点安全边距和复检缺口的边界上拆分走卷轴；同一段可同时受两者约束，只将可保段用于连续修剪。",
+      "observable_failure": "非法领域数据返回 400；不产生伪造结果"
+    },
+    {
+      "workflow_id": "compare",
+      "description": "刀位移动不是原始疵点消失",
+      "observable_failure": "跨对象比对返回 409"
+    },
+    {
+      "workflow_id": "seal",
+      "description": "数据内容复用但上下文不混用",
+      "observable_failure": "非法输入不写入"
+    },
+    {
+      "workflow_id": "export",
+      "description": "指定版本而不是读取最新活动状态",
+      "observable_failure": "未知版本返回 404"
+    },
+    {
+      "workflow_id": "face",
+      "description": "实际检验矩形做并集，和走卷长度覆盖分开",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    },
+    {
+      "workflow_id": "defect_review",
+      "description": "转印范围与同卷复检窗取交；标记优先，完全覆盖才可判为未复现",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    },
+    {
+      "workflow_id": "origin",
+      "description": "宽向和纵向同时还原到母卷并回查疵点",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    },
+    {
+      "workflow_id": "shared",
+      "description": "核对子卷与边料共同保留的原始疵点宽度",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    },
+    {
+      "workflow_id": "runs",
+      "description": "合并相邻可保段但不跨禁保区，记录母卷纵向范围",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    },
+    {
+      "workflow_id": "yield_plan",
+      "description": "各连续段独立容纳定尺与段内切口留量，绝不跨段拼接",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    },
+    {
+      "workflow_id": "losses",
+      "description": "重大、缺检、双因三类长度互斥，同可保长度核对整卷",
+      "observable_failure": "复核输入引用非法或超出边界时返回 400；不封存"
+    }
+  ],
+  "prompt_anchors": [
+    {
+      "id": "layout-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：母卷拼刀替代方案，逐方案交叉核算条宽与疵点面积取舍",
+      "state": "刀位核账：可消费现有数据但不具备目标制品",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "母卷拼刀替代方案，逐方案交叉核算条宽与疵点面积取舍",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "layout-1-dev-extension"
+    },
+    {
+      "id": "layout-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：试算换刀前后按物理幅域而非子卷同名匹配",
+      "state": "刀位核账：已有流程需在新输入下维持原约束",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "试算换刀前后按物理幅域而非子卷同名匹配",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "layout-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：验证相接刀带不生零宽边料且整幅守恒",
+      "state": "刀位核账：需用具有辨识力的业务输入确认约束",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "验证相接刀带不生零宽边料且整幅守恒",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "layout-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：评议固定机器刀位与等宽利用率目标何时冲突",
+      "state": "刀位核账：现有两层证据不必共享同一设计决策",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "评议固定机器刀位与等宽利用率目标何时冲突",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "layout-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：追溯宽度差异是挪刀还是新增未分配边料",
+      "state": "刀位核账：观测结果不足以区分可能的上游起因",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "追溯宽度差异是挪刀还是新增未分配边料",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "layout-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：用两份已有刀单交接实际对应的刀带和未映射区",
+      "state": "刀位核账：现场已有归约，需要人能使用的交接结果",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "用两份已有刀单交接实际对应的刀带和未映射区",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "layout-1-care",
+      "task_type": "项目维护",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：建立测宽单位校准及带边四舍五入口径",
+      "state": "刀位核账：旧数据和新采集口径可能长期共存",
+      "invariant": "刀带有序互斥，未占幅域是实际边料",
+      "observable": "建立测宽单位校准及带边四舍五入口径",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/rules.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/rules.py"
+        ],
+        "functions": [
+          "evaluate",
+          "decide"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "transfer-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：支持一条转印靠两批复检照片拼成同一母卷疵点证据",
+      "state": "疵点转印：可消费现有数据但不具备目标制品",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "支持一条转印靠两批复检照片拼成同一母卷疵点证据",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "transfer-1-dev-extension"
+    },
+    {
+      "id": "transfer-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：在现有转印中保留分幅裁切前的原轮廓与两轴方向",
+      "state": "疵点转印：已有流程需在新输入下维持原约束",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "在现有转印中保留分幅裁切前的原轮廓与两轴方向",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "transfer-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：构造两轴镜像不对称的往返回归",
+      "state": "疵点转印：需用具有辨识力的业务输入确认约束",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "构造两轴镜像不对称的往返回归",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "transfer-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：评议先裁再转与先全幅转再裁的卷边证据",
+      "state": "疵点转印：现有两层证据不必共享同一设计决策",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "评议先裁再转与先全幅转再裁的卷边证据",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "transfer-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：找出回查落在另一子卷的首个坐标基准冲突",
+      "state": "疵点转印：观测结果不足以区分可能的上游起因",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "找出回查落在另一子卷的首个坐标基准冲突",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "transfer-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：据已封存两卷制作现场可抄录的坐标核对单",
+      "state": "疵点转印：现场已有归约，需要人能使用的交接结果",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "据已封存两卷制作现场可抄录的坐标核对单",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "transfer-1-care",
+      "task_type": "项目维护",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：制定扫描仪原点更换的已封存映射兼容约定",
+      "state": "疵点转印：旧数据和新采集口径可能长期共存",
+      "invariant": "纵横同时镜像，刀带相接处无正面积交集",
+      "observable": "制定扫描仪原点更换的已封存映射兼容约定",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "map_defect",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "scrap-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：为边料另做按疵点位置分段的复用图",
+      "state": "边料追踪：可消费现有数据但不具备目标制品",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "为边料另做按疵点位置分段的复用图",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "scrap-1-dev-extension"
+    },
+    {
+      "id": "scrap-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：边料追踪并列整卷面积和实际被疵点覆盖面积，处理重叠矩形",
+      "state": "边料追踪：已有流程需在新输入下维持原约束",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "边料追踪并列整卷面积和实际被疵点覆盖面积，处理重叠矩形",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "scrap-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：验证仅贴边刺既不计双侧也不丢归属",
+      "state": "边料追踪：需用具有辨识力的业务输入确认约束",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "验证仅贴边刺既不计双侧也不丢归属",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "scrap-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：评议整带不可保 vs 局部废弃对边料回收的影响",
+      "state": "边料追踪：现有两层证据不必共享同一设计决策",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "评议整带不可保 vs 局部废弃对边料回收的影响",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "scrap-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：从边料证据查清中缝加宽掩盖了哪些疵点",
+      "state": "边料追踪：观测结果不足以区分可能的上游起因",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "从边料证据查清中缝加宽掩盖了哪些疵点",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "scrap-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：从多条边料中列出必须留作复查的有疵短段",
+      "state": "边料追踪：现场已有归约，需要人能使用的交接结果",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "从多条边料中列出必须留作复查的有疵短段",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "scrap-1-care",
+      "task_type": "项目维护",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：固化刀缝测量更改时旧版边料编号的解释",
+      "state": "边料追踪：旧数据和新采集口径可能长期共存",
+      "invariant": "残边面积按整卷计算，疵点只在正宽相交时引用",
+      "observable": "固化刀缝测量更改时旧版边料编号的解释",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "evaluate",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "coverage-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：新增班次交接的未复检区接续包，保留班次和重叠历史",
+      "state": "复检覆盖：可消费现有数据但不具备目标制品",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "新增班次交接的未复检区接续包，保留班次和重叠历史",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "coverage-1-dev-extension"
+    },
+    {
+      "id": "coverage-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：复检覆盖按可信窗口与待复查窗口分层，禁保口径保持保守",
+      "state": "复检覆盖：已有流程需在新输入下维持原约束",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "复检覆盖按可信窗口与待复查窗口分层，禁保口径保持保守",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "coverage-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：验证嵌套与端点相接的窗不产生瞬时盲域",
+      "state": "复检覆盖：需用具有辨识力的业务输入确认约束",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "验证嵌套与端点相接的窗不产生瞬时盲域",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "coverage-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：评议继续用一维覆盖还是转二维才能签封",
+      "state": "复检覆盖：现有两层证据不必共享同一设计决策",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "评议继续用一维覆盖还是转二维才能签封",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "coverage-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：排查检查单有记录但卷尾仍为盲区的原因链",
+      "state": "复检覆盖：观测结果不足以区分可能的上游起因",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "排查检查单有记录但卷尾仍为盲区的原因链",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "coverage-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：按现有未覆盖区为现场人员编制补检范围与不重复目标",
+      "state": "复检覆盖：现场已有归约，需要人能使用的交接结果",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "按现有未覆盖区为现场人员编制补检范围与不重复目标",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "coverage-1-care",
+      "task_type": "项目维护",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：维护卷头与卷尾切边时复检原始区间的登记规则",
+      "state": "复检覆盖：旧数据和新采集口径可能长期共存",
+      "invariant": "重复复检窗只按并集计一次",
+      "observable": "维护卷头与卷尾切边时复检原始区间的登记规则",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "gaps",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "release-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：新增异议复核交接，保留原发布决定及重审理由",
+      "state": "幅面封样：可消费现有数据但不具备目标制品",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "新增异议复核交接，保留原发布决定及重审理由",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "release-1-dev-extension"
+    },
+    {
+      "id": "release-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：封样结果区分同时触发多项阻断和只有补检可解",
+      "state": "幅面封样：已有流程需在新输入下维持原约束",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "封样结果区分同时触发多项阻断和只有补检可解",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "release-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：回归清掉缺检后重大疵点仍保持阻断",
+      "state": "幅面封样：需用具有辨识力的业务输入确认约束",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "回归清掉缺检后重大疵点仍保持阻断",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "release-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：评议整卷签封与分段交付能否共享同一状态",
+      "state": "幅面封样：现有两层证据不必共享同一设计决策",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "评议整卷签封与分段交付能否共享同一状态",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "release-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：定位看似无缺口却未就绪的真正阻断证据",
+      "state": "幅面封样：观测结果不足以区分可能的上游起因",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "定位看似无缺口却未就绪的真正阻断证据",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "release-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：依据两版结果确定哪些卷可签、哪些需返检",
+      "state": "幅面封样：现场已有归约，需要人能使用的交接结果",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "依据两版结果确定哪些卷可签、哪些需返检",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "release-1-care",
+      "task_type": "项目维护",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：维护外发判定状态到车间术语的兼容表",
+      "state": "幅面封样：旧数据和新采集口径可能长期共存",
+      "invariant": "复检充足不能抵消重大疵点",
+      "observable": "维护外发判定状态到车间术语的兼容表",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "decide",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "trim-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：新增多个客户规格的整卷分配计划，避免同一段重复占用",
+      "state": "修剪提议：可消费现有数据但不具备目标制品",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "新增多个客户规格的整卷分配计划，避免同一段重复占用",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "trim-1-dev-extension"
+    },
+    {
+      "id": "trim-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：现有最长段在等长时可优先参考母卷位置并展示两坐标",
+      "state": "修剪提议：已有流程需在新输入下维持原约束",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "现有最长段在等长时可优先参考母卷位置并展示两坐标",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "trim-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：验证相等长度反绕后首段顺序在两个坐标系中不同",
+      "state": "修剪提议：需用具有辨识力的业务输入确认约束",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "验证相等长度反绕后首段顺序在两个坐标系中不同",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "trim-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：评议按可售总长还是单段最长决定是否返工",
+      "state": "修剪提议：现有两层证据不必共享同一设计决策",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "评议按可售总长还是单段最长决定是否返工",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "trim-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：复核新复检窗是否真的跨越导致最长段变化的断点",
+      "state": "修剪提议：观测结果不足以区分可能的上游起因",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "复核新复检窗是否真的跨越导致最长段变化的断点",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "trim-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：把修剪候选整理成能逐刀核对的顺序指示",
+      "state": "修剪提议：现场已有归约，需要人能使用的交接结果",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "把修剪候选整理成能逐刀核对的顺序指示",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "trim-1-care",
+      "task_type": "项目维护",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：建立预留边距调整时旧修剪结果可复算的记录规范",
+      "state": "修剪提议：旧数据和新采集口径可能长期共存",
+      "invariant": "选择最长连续段，等长取较早，不能拼过禁保区",
+      "observable": "建立预留边距调整时旧修剪结果可复算的记录规范",
+      "primary_mechanism": "ranking_reorder",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "reusable_runs"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "trace-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：提供跨成果版本的母卷坐标交叉指认",
+      "state": "沿卷回查：可消费现有数据但不具备目标制品",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "提供跨成果版本的母卷坐标交叉指认",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "trace-1-dev-extension"
+    },
+    {
+      "id": "trace-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：回查输出改为区分与查询重叠的完整疵点和窗口内截片",
+      "state": "沿卷回查：已有流程需在新输入下维持原约束",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "回查输出改为区分与查询重叠的完整疵点和窗口内截片",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "trace-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：验证查询恰在疵点结束处不会命中",
+      "state": "沿卷回查：需用具有辨识力的业务输入确认约束",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "验证查询恰在疵点结束处不会命中",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "trace-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：评议子卷里的编号与母卷的稳定身份何时作为对照主键",
+      "state": "沿卷回查：现有两层证据不必共享同一设计决策",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "评议子卷里的编号与母卷的稳定身份何时作为对照主键",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "trace-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：还原回查无命中是窗口边界还是倒卷变动",
+      "state": "沿卷回查：观测结果不足以区分可能的上游起因",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "还原回查无命中是窗口边界还是倒卷变动",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "trace-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：从已有问题窗口生成母卷对照测量表",
+      "state": "沿卷回查：现场已有归约，需要人能使用的交接结果",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "从已有问题窗口生成母卷对照测量表",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "trace-1-care",
+      "task_type": "项目维护",
+      "capability_family": "沿卷回查",
+      "subject": "沿卷回查：维护查询物理单位与母卷标识字典，避免旧交接错卷",
+      "state": "沿卷回查：旧数据和新采集口径可能长期共存",
+      "invariant": "回查区间按卷的当前绕向恢复母卷纵坐标",
+      "observable": "维护查询物理单位与母卷标识字典，避免旧交接错卷",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "trace"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "decide",
+          "inspection_origin"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "exclusion-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：输出解除局部禁保所需的最小证据集合，区分不可撤销疵点",
+      "state": "禁保区间：可消费现有数据但不具备目标制品",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "输出解除局部禁保所需的最小证据集合，区分不可撤销疵点",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "exclusion-1-dev-extension"
+    },
+    {
+      "id": "exclusion-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：禁保区保留触发该区的复检缺口来源与疵点来源",
+      "state": "禁保区间：已有流程需在新输入下维持原约束",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "禁保区保留触发该区的复检缺口来源与疵点来源",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "exclusion-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：覆盖四类标签及正长度并集守恒",
+      "state": "禁保区间：需用具有辨识力的业务输入确认约束",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "覆盖四类标签及正长度并集守恒",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "exclusion-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：评议保留重叠原因还是优先重大原因对返检派工的区别",
+      "state": "禁保区间：现有两层证据不必共享同一设计决策",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "评议保留重叠原因还是优先重大原因对返检派工的区别",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "exclusion-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：判明混合段消失是补检完成还是级别变化",
+      "state": "禁保区间：观测结果不足以区分可能的上游起因",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "判明混合段消失是补检完成还是级别变化",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "exclusion-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：逐段给出下一步复检、报废或安全裁切的证据依据",
+      "state": "禁保区间：现场已有归约，需要人能使用的交接结果",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "逐段给出下一步复检、报废或安全裁切的证据依据",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "exclusion-1-care",
+      "task_type": "项目维护",
+      "capability_family": "禁保区间",
+      "subject": "禁保区间：整理现有四态如何映射历史二态报表而不误加合计",
+      "state": "禁保区间：旧数据和新采集口径可能长期共存",
+      "invariant": "缺检和重大疵点可同时成立，长度不可重算",
+      "observable": "整理现有四态如何映射历史二态报表而不误加合计",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "exclusion"
+      ],
+      "source_anchors": [
+        "slitweb/reconcile.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/reconcile.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "summarize",
+          "length_losses"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "face-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：为未覆盖的二维带面生成可提交给巡检设备的扫查范围",
+      "state": "幅面复检：可消费现有数据但不具备目标制品",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "为未覆盖的二维带面生成可提交给巡检设备的扫查范围",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "face-1-dev-extension"
+    },
+    {
+      "id": "face-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：按横幅区带输出面积与盲区证据，保留现有整卷面积",
+      "state": "幅面复检：已有流程需在新输入下维持原约束",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "按横幅区带输出面积与盲区证据，保留现有整卷面积",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "face-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：用两片交错重叠矩形与同长度窄窗校验并集",
+      "state": "幅面复检：需用具有辨识力的业务输入确认约束",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "用两片交错重叠矩形与同长度窄窗校验并集",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "face-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：评议矩形并集与栅格法何时足以支持空间签封",
+      "state": "幅面复检：现有两层证据不必共享同一设计决策",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "评议矩形并集与栅格法何时足以支持空间签封",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "face-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：定位面积突然增加是有效新幅面还是窗口重复",
+      "state": "幅面复检：观测结果不足以区分可能的上游起因",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "定位面积突然增加是有效新幅面还是窗口重复",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "face-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：从既有矩形列出下轮应补扫的幅域而不是给出整卷百分比",
+      "state": "幅面复检：现场已有归约，需要人能使用的交接结果",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "从既有矩形列出下轮应补扫的幅域而不是给出整卷百分比",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "face-1-care",
+      "task_type": "项目维护",
+      "capability_family": "幅面复检",
+      "subject": "幅面复检：规范幅向分辨率变化时的历史面积口径",
+      "state": "幅面复检：旧数据和新采集口径可能长期共存",
+      "invariant": "二维面积按窗并集，完整长度不推出完整幅面",
+      "observable": "规范幅向分辨率变化时的历史面积口径",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "face"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/intervals.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/intervals.py"
+        ],
+        "functions": [
+          "face_coverage",
+          "union"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "defect_review-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：新增互相矛盾的复检结论交接单，区分不同操作者证据",
+      "state": "疵点复核：可消费现有数据但不具备目标制品",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "新增互相矛盾的复检结论交接单，区分不同操作者证据",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "defect_review-1-dev-extension"
+    },
+    {
+      "id": "defect_review-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：允许在同一疵点内独立标注有标记子区域，不解除整疵点阻断",
+      "state": "疵点复核：已有流程需在新输入下维持原约束",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "允许在同一疵点内独立标注有标记子区域，不解除整疵点阻断",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "defect_review-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：验证小标记命中配合大面积清晰时仍保留标记态",
+      "state": "疵点复核：需用具有辨识力的业务输入确认约束",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "验证小标记命中配合大面积清晰时仍保留标记态",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "defect_review-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：评议保留观察结论还是直接更新母卷级别的风险",
+      "state": "疵点复核：现有两层证据不必共享同一设计决策",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "评议保留观察结论还是直接更新母卷级别的风险",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "defect_review-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：追查完全覆盖却标记优先来自哪一窗",
+      "state": "疵点复核：观测结果不足以区分可能的上游起因",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "追查完全覆盖却标记优先来自哪一窗",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "defect_review-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：为同一疵点的重叠证据整理人工复核顺序",
+      "state": "疵点复核：现场已有归约，需要人能使用的交接结果",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "为同一疵点的重叠证据整理人工复核顺序",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "defect_review-1-care",
+      "task_type": "项目维护",
+      "capability_family": "疵点复核",
+      "subject": "疵点复核：维护标记术语统一时的旧成果解释与重放参数",
+      "state": "疵点复核：旧数据和新采集口径可能长期共存",
+      "invariant": "有标记即优先；未标记且覆盖完整才可清晰判定",
+      "observable": "维护标记术语统一时的旧成果解释与重放参数",
+      "primary_mechanism": "state_machine",
+      "workflow_ids": [
+        "defect_review"
+      ],
+      "source_anchors": [
+        "slitweb/inspection.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/inspection.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "defect_review",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "origin-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "复检反查",
+      "subject": "复检反查：新增母卷台账浏览器上的复检面空间叠合报告",
+      "state": "复检反查：可消费现有数据但不具备目标制品",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "新增母卷台账浏览器上的复检面空间叠合报告",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "origin-1-dev-extension"
+    },
+    {
+      "id": "origin-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "复检反查",
+      "subject": "复检反查：逆查从只列母卷疵点升级到剪裁交集并记录原完整窗",
+      "state": "复检反查：已有流程需在新输入下维持原约束",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "逆查从只列母卷疵点升级到剪裁交集并记录原完整窗",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "origin-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "复检反查",
+      "subject": "复检反查：用贴界与跨界矩形验证逆向查询不越界",
+      "state": "复检反查：需用具有辨识力的业务输入确认约束",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "用贴界与跨界矩形验证逆向查询不越界",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "origin-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "复检反查",
+      "subject": "复检反查：评议反查结果存物理矩形还是可重算变换及其版本来源",
+      "state": "复检反查：现有两层证据不必共享同一设计决策",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "评议反查结果存物理矩形还是可重算变换及其版本来源",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "origin-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "复检反查",
+      "subject": "复检反查：定位返工标记偏差仅沿横幅还是双轴",
+      "state": "复检反查：观测结果不足以区分可能的上游起因",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "定位返工标记偏差仅沿横幅还是双轴",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "origin-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "复检反查",
+      "subject": "复检反查：用现有子卷复检反推现场可标新坐标及受影响卷",
+      "state": "复检反查：现场已有归约，需要人能使用的交接结果",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "用现有子卷复检反推现场可标新坐标及受影响卷",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "origin-1-care",
+      "task_type": "项目维护",
+      "capability_family": "复检反查",
+      "subject": "复检反查：记录设备切换到反向测量后现有逆变换所需元数据",
+      "state": "复检反查：旧数据和新采集口径可能长期共存",
+      "invariant": "反绕检查矩形逆变换与转印互逆",
+      "observable": "记录设备切换到反向测量后现有逆变换所需元数据",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "origin"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/geometry.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/geometry.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "map_defect"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "shared-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：增加跨刀带的联合复核排程，协调同一原始疵点的多卷窗口",
+      "state": "母卷疵点分摊：可消费现有数据但不具备目标制品",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "增加跨刀带的联合复核排程，协调同一原始疵点的多卷窗口",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "shared-1-dev-extension"
+    },
+    {
+      "id": "shared-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：按各边料/子卷单列宽度份额并保留总和",
+      "state": "母卷疵点分摊：已有流程需在新输入下维持原约束",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "按各边料/子卷单列宽度份额并保留总和",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "shared-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：组合越过多条刀带和零宽相切验证身份与宽度守恒",
+      "state": "母卷疵点分摊：需用具有辨识力的业务输入确认约束",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "组合越过多条刀带和零宽相切验证身份与宽度守恒",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "shared-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：评议按母卷疵点统计和按子卷转印统计各会重复什么",
+      "state": "母卷疵点分摊：现有两层证据不必共享同一设计决策",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "评议按母卷疵点统计和按子卷转印统计各会重复什么",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "shared-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：追查同一根亮线多次统计是哪条边料参与分摊",
+      "state": "母卷疵点分摊：观测结果不足以区分可能的上游起因",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "追查同一根亮线多次统计是哪条边料参与分摊",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "shared-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：从跨带结果回译哪些子卷应在同场复查",
+      "state": "母卷疵点分摊：现场已有归约，需要人能使用的交接结果",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "从跨带结果回译哪些子卷应在同场复查",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "shared-1-care",
+      "task_type": "项目维护",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：维护母卷疵点合并编号时接续原证据键的规则",
+      "state": "母卷疵点分摊：旧数据和新采集口径可能长期共存",
+      "invariant": "保留宽度与损失宽度源于同一个母卷矩形",
+      "observable": "维护母卷疵点合并编号时接续原证据键的规则",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/domain.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/domain.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "evaluate"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "runs-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：为产线同时输出两侧裁切物理坐标与逐段料卡",
+      "state": "连续可利用段：可消费现有数据但不具备目标制品",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "为产线同时输出两侧裁切物理坐标与逐段料卡",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "runs-1-dev-extension"
+    },
+    {
+      "id": "runs-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：对连续可利用段保留边界来源以区分疵点与盲区截断",
+      "state": "连续可利用段：已有流程需在新输入下维持原约束",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "对连续可利用段保留边界来源以区分疵点与盲区截断",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "runs-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：构造可保段相接但逆向母卷排序颠倒校验并集",
+      "state": "连续可利用段：需用具有辨识力的业务输入确认约束",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "构造可保段相接但逆向母卷排序颠倒校验并集",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "runs-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：评议相邻不同批次可保段能否视作连续一卷",
+      "state": "连续可利用段：现有两层证据不必共享同一设计决策",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "评议相邻不同批次可保段能否视作连续一卷",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "runs-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：识别可利用总长和最大单段落差来自哪些中断",
+      "state": "连续可利用段：观测结果不足以区分可能的上游起因",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "识别可利用总长和最大单段落差来自哪些中断",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "runs-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：生成给操作员的可裁母卷列表和不跨禁保区警示",
+      "state": "连续可利用段：现场已有归约，需要人能使用的交接结果",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "生成给操作员的可裁母卷列表和不跨禁保区警示",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "runs-1-care",
+      "task_type": "项目维护",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：维护段号变化后以坐标对照历史工单的规则",
+      "state": "连续可利用段：旧数据和新采集口径可能长期共存",
+      "invariant": "可利用段不穿过禁保区，母卷端点跟绕向一致",
+      "observable": "维护段号变化后以坐标对照历史工单的规则",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "yield_plan-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：新增互斥规格联合择优排产及可审计剩余料",
+      "state": "短卷产量：可消费现有数据但不具备目标制品",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "新增互斥规格联合择优排产及可审计剩余料",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "yield_plan-1-dev-extension"
+    },
+    {
+      "id": "yield_plan-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：定尺结果区分段首尾不可用留量与件间留量，保留旧默认",
+      "state": "短卷产量：已有流程需在新输入下维持原约束",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "定尺结果区分段首尾不可用留量与件间留量，保留旧默认",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "yield_plan-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：核对恰整数与差一切口两例，不把浮点误差变成额外产量",
+      "state": "短卷产量：需用具有辨识力的业务输入确认约束",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "核对恰整数与差一切口两例，不把浮点误差变成额外产量",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "yield_plan-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：评议优先最大产件数与留可复用段的冲突",
+      "state": "短卷产量：现有两层证据不必共享同一设计决策",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "评议优先最大产件数与留可复用段的冲突",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "yield_plan-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：追查表面总长度足够却缺一件在哪一段",
+      "state": "短卷产量：观测结果不足以区分可能的上游起因",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "追查表面总长度足够却缺一件在哪一段",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "yield_plan-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：用已有产量明细复核两份报价能否各自兑现",
+      "state": "短卷产量：现场已有归约，需要人能使用的交接结果",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "用已有产量明细复核两份报价能否各自兑现",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "yield_plan-1-care",
+      "task_type": "项目维护",
+      "capability_family": "短卷产量",
+      "subject": "短卷产量：制定短卷规格变更后的料卡回算和留量新旧术语",
+      "state": "短卷产量：旧数据和新采集口径可能长期共存",
+      "invariant": "同规格独立试算，段间不拼接，切口只在件间耗长",
+      "observable": "制定短卷规格变更后的料卡回算和留量新旧术语",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "yield_plan"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/review.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/review.py"
+        ],
+        "functions": [
+          "order_yield",
+          "analyze_review"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "losses-1-dev",
+      "task_type": "功能开发",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：新增多卷汇总的按物理长度加权损失账及异常逐卷回查",
+      "state": "分因长度核账：可消费现有数据但不具备目标制品",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "新增多卷汇总的按物理长度加权损失账及异常逐卷回查",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "losses-1-dev-extension"
+    },
+    {
+      "id": "losses-1-opt",
+      "task_type": "功能优化",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：把双因保留为单一核账桶，同时提供不重复总量的归因视图",
+      "state": "分因长度核账：已有流程需在新输入下维持原约束",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "把双因保留为单一核账桶，同时提供不重复总量的归因视图",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "losses-1-qa",
+      "task_type": "质量保障",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：核查重大、缺检完全重合和零保段仍长度守恒",
+      "state": "分因长度核账：需用具有辨识力的业务输入确认约束",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "核查重大、缺检完全重合和零保段仍长度守恒",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "可复算的反例与验证证据"
+    },
+    {
+      "id": "losses-1-design",
+      "task_type": "技术讨论",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：评议多因损失按主因归档还是并列追踪",
+      "state": "分因长度核账：现有两层证据不必共享同一设计决策",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "评议多因损失按主因归档还是并列追踪",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有反例和适用边界的取舍"
+    },
+    {
+      "id": "losses-1-trace",
+      "task_type": "问题排查与诊断",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：追查长度和超出母卷是重叠或换版混用",
+      "state": "分因长度核账：观测结果不足以区分可能的上游起因",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "追查长度和超出母卷是重叠或换版混用",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "有因果顺序的证据定位"
+    },
+    {
+      "id": "losses-1-agent",
+      "task_type": "泛Agent需求",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：基于现有账估算补检最多可释放的长度而不解除重大区",
+      "state": "分因长度核账：现场已有归约，需要人能使用的交接结果",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "基于现有账估算补检最多可释放的长度而不解除重大区",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "用现有成果完成操作交接"
+    },
+    {
+      "id": "losses-1-care",
+      "task_type": "项目维护",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：沉淀月度损耗归档核对流程避免双因计两次",
+      "state": "分因长度核账：旧数据和新采集口径可能长期共存",
+      "invariant": "四类长度互斥且总和为卷长",
+      "observable": "沉淀月度损耗归档核对流程避免双因计两次",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "losses"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "length_losses",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "跨版本可执行的保全规则"
+    },
+    {
+      "id": "layout-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：建立跨母卷规格的刀具兼容矩阵，识别相同刀单在不同幅宽的边料风险",
+      "state": "刀位核账：可消费现有数据但不具备目标制品",
+      "invariant": "刀带编号与物理宽度不同维度",
+      "observable": "建立跨母卷规格的刀具兼容矩阵，识别相同刀单在不同幅宽的边料风险",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "parse",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "layout-2-dev-extension"
+    },
+    {
+      "id": "layout-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "刀位核账",
+      "subject": "刀位核账：刀位核账同时输出连续相接组和整幅不可用间隔",
+      "state": "刀位核账：已有流程需在新输入下维持原约束",
+      "invariant": "刀带编号与物理宽度不同维度",
+      "observable": "刀位核账同时输出连续相接组和整幅不可用间隔",
+      "primary_mechanism": "snapshot_consistency",
+      "workflow_ids": [
+        "layout"
+      ],
+      "source_anchors": [
+        "slitweb/domain.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/domain.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "parse",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "transfer-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：新增同一母卷疵点的分级决议版本档，并可核对原观察",
+      "state": "疵点转印：可消费现有数据但不具备目标制品",
+      "invariant": "原疵点级别不能因清晰复检被默默覆盖",
+      "observable": "新增同一母卷疵点的分级决议版本档，并可核对原观察",
+      "primary_mechanism": "versioning_audit",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "map_defect",
+          "defect_review"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "transfer-2-dev-extension"
+    },
+    {
+      "id": "transfer-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "疵点转印",
+      "subject": "疵点转印：按原疵点聚合转印级别与子卷复核的不一致证据",
+      "state": "疵点转印：已有流程需在新输入下维持原约束",
+      "invariant": "原疵点级别不能因清晰复检被默默覆盖",
+      "observable": "按原疵点聚合转印级别与子卷复核的不一致证据",
+      "primary_mechanism": "versioning_audit",
+      "workflow_ids": [
+        "transfer"
+      ],
+      "source_anchors": [
+        "slitweb/geometry.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/geometry.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "map_defect",
+          "defect_review"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "coverage-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：生成二维与走卷覆盖矛盾的复检派单并标出幅域",
+      "state": "复检覆盖：可消费现有数据但不具备目标制品",
+      "invariant": "二维确认面积与一维已查范围不能互抵",
+      "observable": "生成二维与走卷覆盖矛盾的复检派单并标出幅域",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "union",
+          "face_coverage"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "coverage-2-dev-extension"
+    },
+    {
+      "id": "coverage-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "复检覆盖",
+      "subject": "复检覆盖：一维覆盖显示有窗但缺乏全幅复核的区间，不重写旧缺口",
+      "state": "复检覆盖：已有流程需在新输入下维持原约束",
+      "invariant": "二维确认面积与一维已查范围不能互抵",
+      "observable": "一维覆盖显示有窗但缺乏全幅复核的区间，不重写旧缺口",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "coverage"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "union",
+          "face_coverage"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "release-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：新增加盖人工决议的独立签核成果，绑定复核来源",
+      "state": "幅面封样：可消费现有数据但不具备目标制品",
+      "invariant": "复核不能自动越权签封",
+      "observable": "新增加盖人工决议的独立签核成果，绑定复核来源",
+      "primary_mechanism": "authorization",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "decide",
+          "defect_review"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "release-2-dev-extension"
+    },
+    {
+      "id": "release-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "幅面封样",
+      "subject": "幅面封样：封样展示重大疵点人工复核尚未决的阻断理由，仍不自动解锁",
+      "state": "幅面封样：已有流程需在新输入下维持原约束",
+      "invariant": "复核不能自动越权签封",
+      "observable": "封样展示重大疵点人工复核尚未决的阻断理由，仍不自动解锁",
+      "primary_mechanism": "authorization",
+      "workflow_ids": [
+        "release"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "decide",
+          "defect_review"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "trim-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：输出定尺切口在母卷坐标中的成品标签及复算证据",
+      "state": "修剪提议：可消费现有数据但不具备目标制品",
+      "invariant": "安全裁切不可跨缺口",
+      "observable": "输出定尺切口在母卷坐标中的成品标签及复算证据",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "order_yield"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "trim-2-dev-extension"
+    },
+    {
+      "id": "trim-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "修剪提议",
+      "subject": "修剪提议：最长段结果并行给短卷目标下的可保余料，不混同两准则",
+      "state": "修剪提议：已有流程需在新输入下维持原约束",
+      "invariant": "安全裁切不可跨缺口",
+      "observable": "最长段结果并行给短卷目标下的可保余料，不混同两准则",
+      "primary_mechanism": "capacity",
+      "workflow_ids": [
+        "trim"
+      ],
+      "source_anchors": [
+        "slitweb/rules.py",
+        "slitweb/salvage.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/rules.py",
+          "slitweb/salvage.py"
+        ],
+        "functions": [
+          "decide",
+          "order_yield"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "scrap-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：建立边料样本盒与母卷疵点对应的保样成果",
+      "state": "边料追踪：可消费现有数据但不具备目标制品",
+      "invariant": "边料窗口按刀带补集产生",
+      "observable": "建立边料样本盒与母卷疵点对应的保样成果",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "gaps",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "scrap-2-dev-extension"
+    },
+    {
+      "id": "scrap-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "边料追踪",
+      "subject": "边料追踪：追踪边料左右边来源和中缝来源并区分影响",
+      "state": "边料追踪：已有流程需在新输入下维持原约束",
+      "invariant": "边料窗口按刀带补集产生",
+      "observable": "追踪边料左右边来源和中缝来源并区分影响",
+      "primary_mechanism": "lineage",
+      "workflow_ids": [
+        "scrap"
+      ],
+      "source_anchors": [
+        "slitweb/intervals.py",
+        "slitweb/provenance.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/intervals.py",
+          "slitweb/provenance.py"
+        ],
+        "functions": [
+          "gaps",
+          "shared_origins"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "origin-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "复检反查",
+      "subject": "复检反查：生成逆向复检坐标跨版对测签收包",
+      "state": "复检反查：可消费现有数据但不具备目标制品",
+      "invariant": "两版窗口可在相同物理坐标比较",
+      "observable": "生成逆向复检坐标跨版对测签收包",
+      "primary_mechanism": "versioning_audit",
+      "workflow_ids": [
+        "origin",
+        "compare"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/artifacts.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/artifacts.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "compare"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "origin-2-dev-extension"
+    },
+    {
+      "id": "origin-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "复检反查",
+      "subject": "复检反查：同名复检 ID 因坐标变换改变时显示物理位移和原输入变化",
+      "state": "复检反查：已有流程需在新输入下维持原约束",
+      "invariant": "两版窗口可在相同物理坐标比较",
+      "observable": "同名复检 ID 因坐标变换改变时显示物理位移和原输入变化",
+      "primary_mechanism": "versioning_audit",
+      "workflow_ids": [
+        "origin",
+        "compare"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/artifacts.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/artifacts.py"
+        ],
+        "functions": [
+          "inspection_origin",
+          "compare"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "shared-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：为母卷级异常触发其子卷的横向波及核查",
+      "state": "母卷疵点分摊：可消费现有数据但不具备目标制品",
+      "invariant": "转印扇出与释放规则分离",
+      "observable": "为母卷级异常触发其子卷的横向波及核查",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "shared-2-dev-extension"
+    },
+    {
+      "id": "shared-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "母卷疵点分摊",
+      "subject": "母卷疵点分摊：在现有分摊里显示哪些正面积分片实际触发了禁保",
+      "state": "母卷疵点分摊：已有流程需在新输入下维持原约束",
+      "invariant": "转印扇出与释放规则分离",
+      "observable": "在现有分摊里显示哪些正面积分片实际触发了禁保",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "shared"
+      ],
+      "source_anchors": [
+        "slitweb/provenance.py",
+        "slitweb/reconcile.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/provenance.py",
+          "slitweb/reconcile.py"
+        ],
+        "functions": [
+          "shared_origins",
+          "summarize"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "runs-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：提供买方只接收全幅经复检材料的独立供给清单",
+      "state": "连续可利用段：可消费现有数据但不具备目标制品",
+      "invariant": "一维可保不代表幅面已证实",
+      "observable": "提供买方只接收全幅经复检材料的独立供给清单",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "face_coverage"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "runs-2-dev-extension"
+    },
+    {
+      "id": "runs-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "连续可利用段",
+      "subject": "连续可利用段：可利用段区分已覆盖二维证据和仅历史一维结论",
+      "state": "连续可利用段：已有流程需在新输入下维持原约束",
+      "invariant": "一维可保不代表幅面已证实",
+      "observable": "可利用段区分已覆盖二维证据和仅历史一维结论",
+      "primary_mechanism": "policy_rules",
+      "workflow_ids": [
+        "runs"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/inspection.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/inspection.py"
+        ],
+        "functions": [
+          "reusable_runs",
+          "face_coverage"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    },
+    {
+      "id": "losses-2-dev",
+      "task_type": "功能开发",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：生成跨版损失迁移矩阵及保留证据",
+      "state": "分因长度核账：可消费现有数据但不具备目标制品",
+      "invariant": "按同一物理母卷区对照不同标签",
+      "observable": "生成跨版损失迁移矩阵及保留证据",
+      "primary_mechanism": "versioning_audit",
+      "workflow_ids": [
+        "losses",
+        "compare"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/artifacts.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/artifacts.py"
+        ],
+        "functions": [
+          "length_losses",
+          "compare"
+        ]
+      },
+      "evidence_kind": "新增独立业务成果",
+      "extension_seam_id": "losses-2-dev-extension"
+    },
+    {
+      "id": "losses-2-opt",
+      "task_type": "功能优化",
+      "capability_family": "分因长度核账",
+      "subject": "分因长度核账：差分按对应母卷区间分解标签迁移，不依赖段号匹配",
+      "state": "分因长度核账：已有流程需在新输入下维持原约束",
+      "invariant": "按同一物理母卷区对照不同标签",
+      "observable": "差分按对应母卷区间分解标签迁移，不依赖段号匹配",
+      "primary_mechanism": "versioning_audit",
+      "workflow_ids": [
+        "losses",
+        "compare"
+      ],
+      "source_anchors": [
+        "slitweb/salvage.py",
+        "slitweb/artifacts.py"
+      ],
+      "existing_touch_points": {
+        "files": [
+          "slitweb/salvage.py",
+          "slitweb/artifacts.py"
+        ],
+        "functions": [
+          "length_losses",
+          "compare"
+        ]
+      },
+      "evidence_kind": "兼容的流程行为"
+    }
+  ]
+}

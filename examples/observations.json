@@ -1,0 +1,75 @@
+{
+  "layout": [
+    "甲卷",
+    "width",
+    43,
+    "乙卷",
+    "start",
+    55
+  ],
+  "transfer": [
+    "乙卷/亮线",
+    "y0",
+    750,
+    "乙卷/亮线",
+    "x1",
+    40
+  ],
+  "scrap": [
+    "edge-1",
+    "evidence",
+    [
+      "边刺"
+    ],
+    "edge-2",
+    "end",
+    55
+  ],
+  "coverage": [
+    "乙卷",
+    "missing",
+    [
+      [
+        740,
+        900
+      ]
+    ],
+    "乙卷",
+    "state",
+    "covered"
+  ],
+  "release": [
+    "乙卷",
+    "state",
+    "blocked",
+    "乙卷",
+    "state",
+    "ready"
+  ],
+  "trim": [
+    "乙卷",
+    "end",
+    740,
+    "乙卷",
+    "end",
+    1000
+  ],
+  "trace": [
+    "乙卷",
+    "start",
+    185,
+    "乙卷",
+    "evidence",
+    [
+      "亮线"
+    ]
+  ],
+  "exclusion": [
+    "乙卷/2",
+    "state",
+    "mixed",
+    "乙卷/1",
+    "state",
+    "eligible"
+  ]
+}
