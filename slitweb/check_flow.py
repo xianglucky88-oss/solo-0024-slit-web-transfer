@@ -36,6 +36,40 @@ def observe(rows, row_id, field, target):
         raise ValueError(f'{row_id}.{field} 为 {actual!r}，应为 {target!r}')
 
 
+def audit_fragments(port):
+    data = json.loads((ROOT/'examples'/'fragments.json').read_text(encoding='utf8'))
+    packet = request(port, 'evaluate', data)[0]
+    cases = json.loads((ROOT/'examples'/'fragments-observations.json').read_text(encoding='utf8'))
+    for flow, row, key, value in cases:
+        observe(packet['outputs'][flow], row, key, value)
+    single = next(row for row in packet['outputs']['transfer'] if row['id'] == '乙卷/邻斑')
+    if 'part' in single:
+        raise ValueError('单矩形疵点不应产生分片序号')
+    config = request(port, 'config')[0]
+    transfer = next(op for op in config['operations'] if op['id'] == 'transfer')
+    if 'part' not in transfer['columns']:
+        raise ValueError('浏览器表格缺少分片列')
+    legacy = request(port, 'evaluate', request(port, 'sample')[0])[0]
+    for stage, key in (('transfer', 'part'), ('scrap', 'parts'), ('trace', 'parts')):
+        if any(key in row for row in legacy['outputs'][stage]):
+            raise ValueError(f'单矩形旧输入的 {stage} 不应出现 {key}')
+    reject = json.loads((ROOT/'examples'/'fragments-reject.json').read_text(encoding='utf8'))
+    request(port, 'evaluate', reject, status=400)
+    variants = json.loads(json.dumps(data))
+    variants['defects'][0]['parts'] = []
+    request(port, 'evaluate', variants, status=400)
+    variants = json.loads(json.dumps(data))
+    variants['defects'][0]['parts'][0]['x1'] = 5000
+    request(port, 'evaluate', variants, status=400)
+    variants = json.loads(json.dumps(data))
+    variants['defects'][0]['parts'] = {'x0': 1}
+    request(port, 'evaluate', variants, status=400)
+    sealed = request(port, 'seal', data)[0]
+    exported, headers = request(port, f"export/{sealed['digest']}")
+    if exported != packet or 'attachment;' not in headers.get('Content-Disposition', ''):
+        raise ValueError('下载成果未完整保留分片来源与实际覆盖')
+
+
 def audit(port, flow):
     review = any(op['id'] == flow and op.get('optional') for op in CONFIG['operations'])
     prefix = 'review-' if review else ''
@@ -94,14 +128,17 @@ def audit(port, flow):
 
 def main():
     parser = argparse.ArgumentParser(description='运行有界的生产工作流检查')
-    parser.add_argument('flow', choices=[op['id'] for op in CONFIG['operations']]+['seal','compare','export'])
+    parser.add_argument('flow', choices=[op['id'] for op in CONFIG['operations']]+['seal','compare','export','fragments'])
     args = parser.parse_args()
     with TemporaryDirectory(prefix=CONFIG['namespace']+'-') as directory:
         with serve(Path(directory)/'observations.sqlite', 0) as server:
             thread = Thread(target=server.serve_forever, daemon=True)
             thread.start()
             try:
-                audit(server.server_port,args.flow)
+                if args.flow == 'fragments':
+                    audit_fragments(server.server_port)
+                else:
+                    audit(server.server_port,args.flow)
             finally:
                 server.shutdown()
                 thread.join()

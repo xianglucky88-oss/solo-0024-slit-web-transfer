@@ -21,6 +21,7 @@
       "label": "疵点转印",
       "columns": [
         "id",
+        "part",
         "child",
         "x0",
         "x1",
@@ -37,7 +38,8 @@
         "start",
         "end",
         "area",
-        "evidence"
+        "evidence",
+        "parts"
       ]
     },
     {
@@ -79,6 +81,7 @@
         "start",
         "end",
         "evidence",
+        "parts",
         "state"
       ]
     },
@@ -113,6 +116,7 @@
       "label": "疵点复核",
       "columns": [
         "id",
+        "part",
         "area",
         "total",
         "grade",
@@ -132,7 +136,8 @@
         "y0",
         "y1",
         "state",
-        "evidence"
+        "evidence",
+        "parts"
       ],
       "optional": true
     },
@@ -246,6 +251,8 @@
     "length": "长度",
     "missing": "缺口",
     "observed": "已观测",
+    "part": "分片",
+    "parts": "分片来源",
     "stage": "归约阶段",
     "start": "起点",
     "state": "状态",

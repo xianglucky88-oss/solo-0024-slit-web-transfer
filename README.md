@@ -18,9 +18,10 @@ python3 -m slitweb.server
 python3 -m slitweb.check_flow layout
 python3 -m slitweb.check_flow exclusion
 python3 -m slitweb.check_flow export
+python3 -m slitweb.check_flow fragments
 ```
 
-这些命令在临时成果库和临时回环端口运行实际 HTTP 接口，分别核对样例、对照和拒绝路径。`examples` 保存业务示例及可人工核算的观测点。完整命令见 `.project-runtime.json`；自动化测试套件留置，不包含私有验收测试、缺陷任务或参考解答。
+这些命令在临时成果库和临时回环端口运行实际 HTTP 接口，分别核对样例、对照和拒绝路径。`fragments` 核对分片疵点样例：同一疵点的多个矩形分片部分重叠、另有间隔、且一分片只贴刀带边缘，转印行与边料、复核结果均可回指实物疵点及其分片。`examples` 保存业务示例及可人工核算的观测点。完整命令见 `.project-runtime.json`；自动化测试套件留置，不包含私有验收测试、缺陷任务或参考解答。
 
 ### 扩展复核
 

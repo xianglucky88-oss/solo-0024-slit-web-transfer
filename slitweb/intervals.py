@@ -8,6 +8,10 @@ def union(spans):
     return result
 
 
+def measure(spans):
+    return sum(b - a for a, b in union(spans))
+
+
 def gaps(spans, end):
     last = 0
     result = []

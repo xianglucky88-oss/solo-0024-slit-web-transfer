@@ -1,18 +1,29 @@
 from .intervals import union
 
 
+def part_ref(defect, index):
+    return f"{defect['id']}#{index}" if len(defect['parts']) > 1 else defect['id']
+
+
 def map_defect(defect, cut, length):
-    x0,x1 = max(defect['x0'],cut['a']), min(defect['x1'],cut['b'])
-    if x0 >= x1:
-        return None
-    y0,y1 = defect['y0'], defect['y1']
-    if cut['winding'] == 'reverse':
-        x0,x1 = cut['b']-x1, cut['b']-x0
-        y0,y1 = length-y1,length-y0
-    else:
-        x0,x1 = x0-cut['a'],x1-cut['a']
-    return dict(id=f"{cut['id']}/{defect['id']}", child=cut['id'], evidence=defect['id'],
-                x0=x0,x1=x1,y0=y0,y1=y1,state=defect['grade'])
+    rows = []
+    multi = len(defect['parts']) > 1
+    for n, part in enumerate(defect['parts'], 1):
+        x0, x1 = max(part['x0'], cut['a']), min(part['x1'], cut['b'])
+        if x0 >= x1:
+            continue
+        y0, y1 = part['y0'], part['y1']
+        if cut['winding'] == 'reverse':
+            x0, x1 = cut['b'] - x1, cut['b'] - x0
+            y0, y1 = length - y1, length - y0
+        else:
+            x0, x1 = x0 - cut['a'], x1 - cut['a']
+        row = dict(id=f"{cut['id']}/{part_ref(defect, n)}", child=cut['id'], evidence=defect['id'],
+                   x0=x0, x1=x1, y0=y0, y1=y1, state=defect['grade'])
+        if multi:
+            row['part'] = n
+        rows.append(row)
+    return rows
 
 
 def overlap(first, second):

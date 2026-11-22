@@ -39,7 +39,10 @@ def defect_review(inspections, transfer):
         area = union_area(clips)
         total = (defect['x1'] - defect['x0']) * (defect['y1'] - defect['y0'])
         marked = any(r['state'] == 'marked' for r in rows)
-        result.append(dict(id=defect['id'], area=area, total=total, grade=defect['state'],
-                           state='marked' if marked else 'clear' if abs(area-total) <= total*1e-12 else 'partial' if rows else 'blind',
-                           evidence={'origin': defect['evidence'], 'inspections': [r['id'] for r in rows]}))
+        row = dict(id=defect['id'], area=area, total=total, grade=defect['state'],
+                   state='marked' if marked else 'clear' if abs(area-total) <= total*1e-12 else 'partial' if rows else 'blind',
+                   evidence={'origin': defect['evidence'], 'inspections': [r['id'] for r in rows]})
+        if 'part' in defect:
+            row['part'] = defect['part']
+        result.append(row)
     return result

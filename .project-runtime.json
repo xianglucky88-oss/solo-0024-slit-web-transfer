@@ -81,6 +81,10 @@
     {
       "workflow_id": "losses",
       "command": "python3 -m slitweb.check_flow losses"
+    },
+    {
+      "workflow_id": "fragments",
+      "command": "python3 -m slitweb.check_flow fragments"
     }
   ]
 }

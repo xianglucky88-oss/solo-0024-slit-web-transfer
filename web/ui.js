@@ -39,8 +39,7 @@ function show(next) {
   draw($('visual'), next, model);
   const review = Object.hasOwn(next.source, 'review');
   $('review-pane').hidden = !review;
-  if (!review) $('review-pane').open = false;
-  renderOperation(Object.hasOwn(next.outputs, mode) ? mode : model.defaultOperation);
+  if (!review) $('review-pane').open = false;  renderOperation(Object.hasOwn(next.outputs, mode) ? mode : model.defaultOperation);
 }
 
 function source() {
@@ -70,11 +69,9 @@ async function choose(path) {
   const next = await request('evaluate', data);
   $('source').value = JSON.stringify(data, null, 2);
   show(next);
-  if (path === 'review-sample') {
-    $('review-pane').open = true;
-    renderOperation(model.operations.find((op) => op.optional).id);
-  }
-  note(({ sample:'样例已处理', alternate:'对照样例已处理', 'review-sample':'复核样例已处理' })[path]);
+  if (path === 'review-sample' || path === 'fragments') $('review-pane').open = true;
+  if (path === 'review-sample') renderOperation(model.operations.find((op) => op.optional).id);
+  note(({ sample:'样例已处理', alternate:'对照样例已处理', 'review-sample':'复核样例已处理', fragments:'分片样例已处理' })[path]);
 }
 
 function bind(id, action, event = 'click') {
@@ -93,6 +90,7 @@ guarded(async () => {
   }
   bind('sample', () => choose('sample'));
   bind('review-sample', () => choose('review-sample'));
+  bind('fragments', () => choose('fragments'));
   bind('alternate', () => choose('alternate'));
   bind('evaluate', async () => {
     show(await request('evaluate', source()));
