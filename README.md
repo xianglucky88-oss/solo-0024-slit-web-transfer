@@ -25,3 +25,7 @@ python3 -m slitweb.check_flow export
 ### 扩展复核
 
 使用「复核样例」，随后在「扩展复核」切换各项结果。有效输入见 `examples/review-sample.json` 与 `examples/review-alternate.json`。例如运行 `python3 -m slitweb.check_flow face` 可核对派生结果、拒绝非法复核和基础版本兼容性。
+
+## 定尺交接
+
+采购、裁剪与车间对同一张短卷结果抄数的口径说明见 `docs/fixed-length-handover.md`，附带可逐项验算的最小输入 `examples/handover-minimal.json`。说明只解释现有 `yield_plan`/`runs`/`exclusion` 字段与下载追溯，不新增排产或标价规则。
