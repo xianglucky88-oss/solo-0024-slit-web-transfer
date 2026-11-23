@@ -24,6 +24,8 @@ th{position:sticky;top:0;background:var(--faint);font-weight:650}th,td{padding:8
 .state{white-space:nowrap;color:var(--muted)}.state[data-state=ready],.state[data-state=paired],.state[data-state=verified],.state[data-state=assigned]{color:var(--accent);font-weight:700}.state[data-state=blocked],.state[data-state=ambiguous],.state[data-state=over],.state[data-state=unresolved]{color:var(--chart);font-weight:700}
 .revision,.input-pane{border-top:1px solid var(--line);padding-top:12px;min-width:0}.revision h2{margin-bottom:9px}.revision-tools label{display:grid;gap:3px;color:var(--muted);font-size:12px;min-width:0}.revision-tools{align-items:end}
 .revision-tools select{width:min(240px,100%)}.input-pane summary{cursor:pointer;font-weight:650;color:var(--accent)}
+.revision-tools input{font:inherit;border:1px solid var(--line);border-radius:4px;padding:6px 8px;width:110px;min-height:34px;color:var(--ink);background:var(--paper)}
+.reuse-hint{color:var(--muted);font-size:12px}
 textarea{display:block;width:100%;min-height:240px;resize:vertical;margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:4px;font:13px/1.45 ui-monospace,monospace;color:var(--ink);white-space:pre;overflow:auto}
 #status{min-height:1.5em;margin:0;color:var(--accent);overflow-wrap:anywhere}#status[data-kind=error]{color:var(--chart)}#empty{color:var(--muted)}
 dialog{border:1px solid var(--line);border-radius:6px;color:var(--ink);padding:18px;width:min(92vw,620px);max-height:80vh;overflow:auto}dialog::backdrop{background:#17272180}dialog form{display:flex;justify-content:space-between;align-items:start;gap:15px}dl{display:grid;grid-template-columns:minmax(6rem,auto) minmax(0,1fr);gap:5px 12px}dt{color:var(--muted)}dd{margin:0;overflow-wrap:anywhere}dd dl{margin:0}

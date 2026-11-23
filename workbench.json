@@ -212,6 +212,8 @@
     "mixed": "缺检且有重大疵点",
     "eligible": "可保留",
     "fits": "有产量",
+    "partial": "部分覆盖",
+    "conflict": "冲突待复核",
     "split": "跨带分摊",
     "kept": "保留",
     "scrap": "边料",
@@ -284,7 +286,13 @@
     "mixed": "双因禁保长度",
     "eligible": "可保长度",
     "blocked": "重大疵点长度",
-    "blind": "缺检长度"
+    "blind": "缺检长度",
+    "winding": "绕向",
+    "clean": "清洁幅面",
+    "marked": "标记幅面",
+    "conflict": "冲突待复核",
+    "lacking": "仍缺证",
+    "target": "目标幅面"
   },
   "reconciliation": "exclusion",
   "defaultOperation": "transfer"

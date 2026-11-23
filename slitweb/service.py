@@ -1,4 +1,5 @@
 from . import artifacts, domain, reconcile, rules
+from .reuse import transfer_reuse
 from .review import analyze_review
 from .contract import ContractError, ident, obj
 
@@ -29,6 +30,10 @@ class Workbench:
             before = self.read(body.get('left'))
             after = self.read(body.get('right'))
             return artifacts.compare(before, after, self.config['operations'])
+        if command == 'reuse':
+            before = self.read(body.get('left'))
+            after = self.read(body.get('right'))
+            return transfer_reuse(before, after, body)
         raise ContractError('没有这个处理入口', 404)
 
     def read(self, key):

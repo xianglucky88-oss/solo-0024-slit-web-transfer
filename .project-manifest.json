@@ -48,6 +48,11 @@
       "responsibility": "联合原始归约事实与业务判定，推导禁保区间"
     },
     {
+      "id": "reuse",
+      "path": "slitweb/reuse.py",
+      "responsibility": "跨封存成果的二维复检转用试算"
+    },
+    {
       "id": "inspection",
       "path": "slitweb/inspection.py",
       "responsibility": "复核证据归约"
@@ -490,6 +495,29 @@
         "artifacts",
         "result_table",
         "intervals"
+      ]
+    },
+    {
+      "id": "reuse",
+      "name": "转用试算",
+      "entry": "POST /slitweb/api/reuse",
+      "steps": [
+        "原物理复检区域与新刀带求交，一处旧区域可分给两条不同绕向的新刀带",
+        "按新刀带分列清洁、标记、冲突待复核、仍缺证四类实际幅面，重叠不重复充当覆盖",
+        "只有纵向检查窗的旧档不能充当二维证据；试算不改写旧档也不替新方案签封"
+      ],
+      "success": "丁卷 的 冲突待复核 为 1050",
+      "failure": "跨母卷或幅面不一致返回 409；目标段非法返回 400；未知成果返回 404",
+      "verification": "python3 -m slitweb.check_flow reuse",
+      "module_ids": [
+        "server",
+        "service",
+        "reuse",
+        "archive",
+        "artifacts",
+        "result_table",
+        "version_panel",
+        "geometry"
       ]
     }
   ],

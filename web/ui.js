@@ -40,6 +40,8 @@ function show(next) {
   const review = Object.hasOwn(next.source, 'review');
   $('review-pane').hidden = !review;
   if (!review) $('review-pane').open = false;
+  if ($('segment-start').value === '') $('segment-start').value = 0;
+  if ($('segment-end').value === '') $('segment-end').value = next.source.length;
   renderOperation(Object.hasOwn(next.outputs, mode) ? mode : model.defaultOperation);
 }
 
@@ -125,6 +127,16 @@ guarded(async () => {
     $('table-title').textContent = '版本差异';
     renderRows(model, rows, ['id', 'stage', 'state', 'before', 'after'], '差异', { ...model.columns, before: '参照版本', after: '目标版本' });
     note(`已比较 ${left.slice(0, 8)} 与 ${right.slice(0, 8)}`);
+  });
+  bind('reuse', async () => {
+    const rawStart = $('segment-start').value, rawEnd = $('segment-end').value;
+    const start = Number(rawStart), end = Number(rawEnd);
+    if (rawStart === '' || rawEnd === '' || !Number.isFinite(start) || !Number.isFinite(end)) throw new Error('先填写目标段起止');
+    const result = await versions.reuse(start, end);
+    for (const button of stageButtons()) button.setAttribute('aria-pressed', 'false');
+    $('table-title').textContent = '转用试算';
+    renderRows(model, result.rows, ['id', 'winding', 'clean', 'marked', 'conflict', 'lacking', 'target', 'state', 'evidence'], '试算');
+    note(`转用试算 ${result.left.slice(0, 8)} → ${result.right.slice(0, 8)}，试算不入库，未改动封存成果`);
   });
   await versions.refresh();
   await choose('sample');

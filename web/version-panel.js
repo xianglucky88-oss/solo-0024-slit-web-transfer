@@ -39,6 +39,12 @@ export function versionPanel(request, base) {
     return { left, right, rows: result.rows };
   }
 
+  async function reuse(start, end) {
+    const left = document.getElementById('left-version').value, right = document.getElementById('right-version').value;
+    if (!left || !right) throw new Error('先选择两个版本');
+    return request('reuse', { left, right, start, end });
+  }
+
   document.getElementById('right-version').addEventListener('change', updateExport);
-  return { refresh, seal, inspect, compare };
+  return { refresh, seal, inspect, compare, reuse };
 }

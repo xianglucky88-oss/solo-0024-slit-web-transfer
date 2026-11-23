@@ -41,6 +41,12 @@
         <label>目标版本<select id="right-version"></select></label>
         <button id="inspect">打开目标版本</button><button id="compare">查看差异</button><a class="export-link" id="export" hidden>下载交接资料</a>
       </div>
+      <div class="revision-tools reuse-tools">
+        <label>目标段起点<input id="segment-start" type="number" min="0" step="any"></label>
+        <label>目标段终点<input id="segment-end" type="number" min="0" step="any"></label>
+        <button id="reuse">转用试算</button>
+        <span class="reuse-hint">以参照版本的二维复检试算目标版本新刀位，试算不入库</span>
+      </div>
     </section>
     <details id="source-pane" class="input-pane"><summary>来源数据</summary><textarea id="source" spellcheck="false" aria-label="观测来源数据"></textarea></details>
   </main>

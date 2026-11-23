@@ -18,6 +18,7 @@ python3 -m slitweb.server
 python3 -m slitweb.check_flow layout
 python3 -m slitweb.check_flow exclusion
 python3 -m slitweb.check_flow export
+python3 -m slitweb.check_flow reuse
 ```
 
 这些命令在临时成果库和临时回环端口运行实际 HTTP 接口，分别核对样例、对照和拒绝路径。`examples` 保存业务示例及可人工核算的观测点。完整命令见 `.project-runtime.json`；自动化测试套件留置，不包含私有验收测试、缺陷任务或参考解答。
@@ -25,3 +26,7 @@ python3 -m slitweb.check_flow export
 ### 扩展复核
 
 使用「复核样例」，随后在「扩展复核」切换各项结果。有效输入见 `examples/review-sample.json` 与 `examples/review-alternate.json`。例如运行 `python3 -m slitweb.check_flow face` 可核对派生结果、拒绝非法复核和基础版本兼容性。
+
+### 转用试算
+
+封存两份同母卷试切方案后，在「成果版本」下选择参照版本（提供二维复检）与目标版本（提供新刀位），填写目标段起止并点击「转用试算」，结果按新刀带分列清洁、标记、冲突待复核、仍缺证四类实际幅面；试算只读不写，不入库也不签封。验收材料见 `examples/reuse-origin.json` 与 `examples/reuse-plan.json`：母卷幅面相等、新刀位覆盖分布不同且跨缝一侧绕向改变。运行 `python3 -m slitweb.check_flow reuse` 核对。

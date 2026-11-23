@@ -88,13 +88,60 @@ def audit(port, flow):
         if payload != original or 'attachment;' not in headers.get('Content-Disposition',''):
             raise ValueError('导出没有保留原版本或下载头')
         request(port,'export/' + '0'*64,status=404)
+    elif flow == 'reuse':
+        origin = json.loads((ROOT/'examples'/'reuse-origin.json').read_text(encoding='utf8'))
+        plan = json.loads((ROOT/'examples'/'reuse-plan.json').read_text(encoding='utf8'))
+        old = request(port,'seal',origin)[0]
+        new = request(port,'seal',plan)[0]
+        if not old['created'] or not new['created']:
+            raise ValueError('转用试算材料封存失败')
+        segment = dict(start=120,end=880)
+        result = request(port,'reuse',dict(left=old['digest'],right=new['digest'],**segment))[0]
+        if result['subject'] != origin['id'] or result['segment'] != [120,880]:
+            raise ValueError('转用试算应回显同一母卷与目标段')
+        expected = {
+            '丙卷': dict(winding='reverse',clean=8220,marked=0,conflict=0,lacking=33580,target=41800,
+                         state='partial',evidence=['乙跨窗','甲净窗']),
+            '丁卷': dict(winding='forward',clean=2650,marked=950,conflict=1050,lacking=21950,target=26600,
+                         state='conflict',evidence=['乙净窗','乙标窗','乙跨窗']),
+        }
+        rows = {row['id']: row for row in result['rows']}
+        if set(rows) != set(expected):
+            raise ValueError('转用试算应覆盖新方案全部刀带')
+        for child, want in expected.items():
+            row = rows[child]
+            for key, value in want.items():
+                actual = row.get(key)
+                ok = isclose(actual,value,abs_tol=1e-8) if type(value) in (int,float) else actual == value
+                if not ok:
+                    raise ValueError(f'{child}.{key} 为 {actual!r}，应为 {value!r}')
+            if not isclose(row['clean']+row['marked']+row['conflict']+row['lacking'],row['target'],abs_tol=1e-8):
+                raise ValueError('四类幅面应不重不漏拼成目标幅面')
+        if '乙跨窗' not in rows['丙卷']['evidence'] or '乙跨窗' not in rows['丁卷']['evidence']:
+            raise ValueError('一处旧区域应分给跨缝的两条新刀带')
+        flat = request(port,'reuse',dict(left=left['digest'],right=new['digest'],**segment))[0]
+        if any(row['clean'] or row['marked'] or row['conflict'] or row['state'] != 'blind'
+               or not isclose(row['lacking'],row['target'],abs_tol=1e-8) for row in flat['rows']):
+            raise ValueError('只有纵向检查窗的旧档不能充当二维证据')
+        other = request(port,'seal',dict(plan,id='另一母卷'))[0]
+        request(port,'reuse',dict(left=old['digest'],right=other['digest'],**segment),status=409)
+        wider = request(port,'seal',dict(plan,width=120))[0]
+        request(port,'reuse',dict(left=old['digest'],right=wider['digest'],**segment),status=409)
+        request(port,'reuse',dict(left=old['digest'],right=new['digest'],start=880,end=120),status=400)
+        request(port,'reuse',dict(left=old['digest'],right=new['digest'],start=0,end=1200),status=400)
+        request(port,'reuse',dict(left=old['digest'],right=new['digest'],start=120),status=400)
+        request(port,'reuse',dict(left='0'*64,right=new['digest'],**segment),status=404)
+        if request(port,f"packet/{old['digest']}")[0] != request(port,'evaluate',origin)[0]:
+            raise ValueError('转用试算改写了已封存旧档')
+        if len(request(port,'revisions')[0]) != 6:
+            raise ValueError('转用试算不应写入成果库或替新方案签封')
     else:
         raise ValueError(f'未知工作流：{flow}')
 
 
 def main():
     parser = argparse.ArgumentParser(description='运行有界的生产工作流检查')
-    parser.add_argument('flow', choices=[op['id'] for op in CONFIG['operations']]+['seal','compare','export'])
+    parser.add_argument('flow', choices=[op['id'] for op in CONFIG['operations']]+['seal','compare','export','reuse'])
     args = parser.parse_args()
     with TemporaryDirectory(prefix=CONFIG['namespace']+'-') as directory:
         with serve(Path(directory)/'observations.sqlite', 0) as server:
