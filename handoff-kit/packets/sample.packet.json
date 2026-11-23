@@ -1,0 +1,325 @@
+{
+  "project": "slitweb",
+  "schema": 1,
+  "subject": "覆膜卷-27",
+  "source": {
+    "id": "覆膜卷-27",
+    "width": 100,
+    "length": 1000,
+    "margin": 10,
+    "cuts": [
+      {
+        "id": "甲卷",
+        "a": 5,
+        "b": 48,
+        "winding": "forward"
+      },
+      {
+        "id": "乙卷",
+        "a": 52,
+        "b": 95,
+        "winding": "reverse"
+      }
+    ],
+    "defects": [
+      {
+        "id": "亮线",
+        "x0": 45,
+        "x1": 60,
+        "y0": 180,
+        "y1": 250,
+        "grade": "major"
+      },
+      {
+        "id": "擦痕",
+        "x0": 20,
+        "x1": 30,
+        "y0": 410,
+        "y1": 430,
+        "grade": "minor"
+      },
+      {
+        "id": "边刺",
+        "x0": 0,
+        "x1": 5,
+        "y0": 100,
+        "y1": 103,
+        "grade": "minor"
+      }
+    ],
+    "checks": [
+      {
+        "id": "复检甲一",
+        "child": "甲卷",
+        "start": 0,
+        "end": 620
+      },
+      {
+        "id": "复检甲二",
+        "child": "甲卷",
+        "start": 580,
+        "end": 1000
+      },
+      {
+        "id": "复检乙一",
+        "child": "乙卷",
+        "start": 0,
+        "end": 740
+      },
+      {
+        "id": "复检乙二",
+        "child": "乙卷",
+        "start": 900,
+        "end": 1000
+      }
+    ],
+    "query": {
+      "child": "乙卷",
+      "start": 760,
+      "end": 815
+    }
+  },
+  "source_digest": "3bddde9d58fdc93bd89952cdf9e0232c3fff649c05a5f80df2628058f8b55905",
+  "outputs": {
+    "layout": [
+      {
+        "id": "甲卷",
+        "start": 5,
+        "end": 48,
+        "width": 43,
+        "state": "forward"
+      },
+      {
+        "id": "乙卷",
+        "start": 52,
+        "end": 95,
+        "width": 43,
+        "state": "reverse"
+      }
+    ],
+    "transfer": [
+      {
+        "id": "甲卷/亮线",
+        "child": "甲卷",
+        "evidence": "亮线",
+        "x0": 40,
+        "x1": 43,
+        "y0": 180,
+        "y1": 250,
+        "state": "major"
+      },
+      {
+        "id": "甲卷/擦痕",
+        "child": "甲卷",
+        "evidence": "擦痕",
+        "x0": 15,
+        "x1": 25,
+        "y0": 410,
+        "y1": 430,
+        "state": "minor"
+      },
+      {
+        "id": "乙卷/亮线",
+        "child": "乙卷",
+        "evidence": "亮线",
+        "x0": 35,
+        "x1": 43,
+        "y0": 750,
+        "y1": 820,
+        "state": "major"
+      }
+    ],
+    "scrap": [
+      {
+        "id": "edge-1",
+        "start": 0,
+        "end": 5,
+        "area": 5000,
+        "evidence": [
+          "边刺"
+        ],
+        "state": "marked"
+      },
+      {
+        "id": "edge-2",
+        "start": 48,
+        "end": 52,
+        "area": 4000,
+        "evidence": [
+          "亮线"
+        ],
+        "state": "marked"
+      },
+      {
+        "id": "edge-3",
+        "start": 95,
+        "end": 100,
+        "area": 5000,
+        "evidence": [],
+        "state": "clear"
+      }
+    ],
+    "coverage": [
+      {
+        "id": "甲卷",
+        "observed": 1000,
+        "missing": [],
+        "evidence": [
+          "复检甲一",
+          "复检甲二"
+        ],
+        "state": "covered"
+      },
+      {
+        "id": "乙卷",
+        "observed": 840,
+        "missing": [
+          [
+            740,
+            900
+          ]
+        ],
+        "evidence": [
+          "复检乙一",
+          "复检乙二"
+        ],
+        "state": "blind"
+      }
+    ],
+    "release": [
+      {
+        "id": "甲卷",
+        "state": "blocked",
+        "count": 1,
+        "missing": [],
+        "evidence": [
+          "亮线"
+        ]
+      },
+      {
+        "id": "乙卷",
+        "state": "blocked",
+        "count": 1,
+        "missing": [
+          [
+            740,
+            900
+          ]
+        ],
+        "evidence": [
+          "亮线"
+        ]
+      }
+    ],
+    "trim": [
+      {
+        "id": "甲卷",
+        "state": "proposed",
+        "start": 260,
+        "end": 1000,
+        "length": 740,
+        "evidence": [
+          "亮线"
+        ],
+        "missing": []
+      },
+      {
+        "id": "乙卷",
+        "state": "proposed",
+        "start": 0,
+        "end": 740,
+        "length": 740,
+        "evidence": [
+          "亮线"
+        ],
+        "missing": [
+          [
+            740,
+            900
+          ]
+        ]
+      }
+    ],
+    "trace": [
+      {
+        "id": "乙卷",
+        "start": 185,
+        "end": 240,
+        "evidence": [
+          "亮线"
+        ],
+        "state": "marked"
+      }
+    ],
+    "exclusion": [
+      {
+        "id": "甲卷/1",
+        "child": "甲卷",
+        "start": 0,
+        "end": 170,
+        "length": 170,
+        "state": "eligible",
+        "evidence": []
+      },
+      {
+        "id": "甲卷/2",
+        "child": "甲卷",
+        "start": 170,
+        "end": 260,
+        "length": 90,
+        "state": "blocked",
+        "evidence": [
+          "亮线"
+        ]
+      },
+      {
+        "id": "甲卷/3",
+        "child": "甲卷",
+        "start": 260,
+        "end": 1000,
+        "length": 740,
+        "state": "eligible",
+        "evidence": []
+      },
+      {
+        "id": "乙卷/1",
+        "child": "乙卷",
+        "start": 0,
+        "end": 740,
+        "length": 740,
+        "state": "eligible",
+        "evidence": []
+      },
+      {
+        "id": "乙卷/2",
+        "child": "乙卷",
+        "start": 740,
+        "end": 830,
+        "length": 90,
+        "state": "mixed",
+        "evidence": [
+          "亮线"
+        ]
+      },
+      {
+        "id": "乙卷/3",
+        "child": "乙卷",
+        "start": 830,
+        "end": 900,
+        "length": 70,
+        "state": "blind",
+        "evidence": []
+      },
+      {
+        "id": "乙卷/4",
+        "child": "乙卷",
+        "start": 900,
+        "end": 1000,
+        "length": 100,
+        "state": "eligible",
+        "evidence": []
+      }
+    ]
+  },
+  "digest": "f1d1a69f1c064591d3a846caa7653df6089eedd2d43bc3c81969b6fea0481917"
+}

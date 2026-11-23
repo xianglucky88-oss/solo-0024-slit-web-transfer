@@ -1,0 +1,209 @@
+{
+  "subject": "覆膜卷-27",
+  "single_pass_goal": "一次返检澄清最多现存矛盾；按母卷疵点去重；盲域与重大禁保域分开。",
+  "orders": [
+    {
+      "order_id": "WO-01",
+      "kind": "origin_defect_recheck",
+      "origin_defect_id": "亮线",
+      "priority_score": 3,
+      "priority_basis": {
+        "contradictions_clarified": 1,
+        "touches_blind_gap": true,
+        "has_major_fragment": true
+      },
+      "master_rect": {
+        "x0": 45,
+        "x1": 60,
+        "y0": 180,
+        "y1": 250
+      },
+      "spread_state": "split",
+      "recheck_targets": [
+        {
+          "child": "甲卷",
+          "transfer_id": "甲卷/亮线",
+          "child_rect": {
+            "x0": 40,
+            "x1": 43,
+            "y0": 180,
+            "y1": 250
+          },
+          "grade": "major",
+          "current_review_state": "blind",
+          "current_review_label": "缺少可用数据",
+          "blind_gaps_on_this_fragment": []
+        },
+        {
+          "child": "乙卷",
+          "transfer_id": "乙卷/亮线",
+          "child_rect": {
+            "x0": 35,
+            "x1": 43,
+            "y0": 750,
+            "y1": 820
+          },
+          "grade": "major",
+          "current_review_state": "clear",
+          "current_review_label": "未见疵点",
+          "blind_gaps_on_this_fragment": [
+            [
+              740,
+              900
+            ]
+          ]
+        }
+      ],
+      "contradictions": [
+        {
+          "origin_defect_id": "亮线",
+          "transfer_id": "乙卷/亮线",
+          "child": "乙卷",
+          "baseline_state": "clear",
+          "baseline_label": "未见疵点",
+          "conflict_state": "marked",
+          "conflict_label": "有标记",
+          "baseline_grade": "major",
+          "conflict_grade": "minor",
+          "contradiction": "同一母卷疵点「亮线」在 乙卷 的分片，基线快照复核为「未见疵点」，对照快照复核为「有标记」；且两版疵点分级不同，需一次返检统一结论。",
+          "evidence_sources": {
+            "baseline_defect_review": "defect_review/乙卷/亮线",
+            "conflict_defect_review": "defect_review/乙卷/亮线",
+            "baseline_packet": "00a4abca91f91c4855b7b2bcdb42c120c34e4df2dd5f50761971a6a1111a89f3",
+            "conflict_packet": "b1f955ed7943b6aad96196abd510378b82f32c5f7659a8db95cbdbf606082419"
+          }
+        }
+      ],
+      "expected_clarification": "一次返检统一「亮线」在所有子卷分片的复现/分级结论，并覆盖其落在盲域内的部分，消除跨快照矛盾。",
+      "abandon_or_limit_reasons": [
+        "注意：母卷疵点「亮线」含重大(major)分片，复检结论不能解除其封样阻断；本工单的返检目的仅限于澄清分级/复现矛盾与补齐盲域，不改变禁保事实。"
+      ],
+      "evidence_sources": {
+        "input_defect": "亮线",
+        "transfer_rows": [
+          "甲卷/亮线",
+          "乙卷/亮线"
+        ],
+        "shared_row": "shared/亮线",
+        "scrap_rows": [
+          "scrap/edge-2"
+        ]
+      },
+      "execution_rank": 1
+    },
+    {
+      "order_id": "WO-04",
+      "kind": "blind_gap_coverage",
+      "priority_score": 2,
+      "child": "乙卷",
+      "target_segment": {
+        "start": 830,
+        "end": 900
+      },
+      "length": 70,
+      "priority_basis": {
+        "recoverable": true,
+        "contains_major": false
+      },
+      "expected_clarification": "补检 乙卷 走卷 830–900（长 70），该段无重大疵点证据，覆盖且未见重大疵点即可由盲域转可保。",
+      "abandon_or_limit_reasons": [],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/乙卷/3",
+        "losses_row": "losses/乙卷"
+      },
+      "execution_rank": 2
+    },
+    {
+      "order_id": "WO-02",
+      "kind": "origin_defect_recheck",
+      "origin_defect_id": "擦痕",
+      "priority_score": 0,
+      "disposition": "abandoned",
+      "master_rect": {
+        "x0": 20,
+        "x1": 30,
+        "y0": 410,
+        "y1": 430
+      },
+      "abandon_or_limit_reasons": [
+        "母卷疵点「擦痕」为轻微疵点，其保留分片的走卷长度窗均无缺检缺口、也无跨快照矛盾，一次返检无法澄清任何现存矛盾，放弃派单。 说明：这些分片尚未做幅面 2D 复检（defect_review=blind），但其走卷向已在复检窗内且为轻微疵点，不构成本次有限返检的优先目标；如后续升级为重大或出现异议，再凭母卷坐标补 2D 复检。"
+      ],
+      "evidence_sources": {
+        "input_defect": "擦痕",
+        "transfer_rows": [
+          "甲卷/擦痕"
+        ],
+        "shared_row": "shared/擦痕",
+        "scrap_rows": []
+      },
+      "execution_rank": null
+    },
+    {
+      "order_id": "WO-03",
+      "kind": "origin_defect_recheck",
+      "origin_defect_id": "边刺",
+      "priority_score": 0,
+      "disposition": "abandoned",
+      "master_rect": {
+        "x0": 0,
+        "x1": 5,
+        "y0": 100,
+        "y1": 103
+      },
+      "abandon_or_limit_reasons": [
+        "母卷疵点「边刺」整体落入边料（edge-1），不进入任何保留子卷，无返检价值，放弃派单。"
+      ],
+      "evidence_sources": {
+        "input_defect": "边刺",
+        "transfer_rows": [],
+        "shared_row": "shared/边刺",
+        "scrap_rows": [
+          "scrap/edge-1"
+        ]
+      },
+      "execution_rank": null
+    },
+    {
+      "order_id": "WO-05",
+      "kind": "excluded_no_recheck",
+      "priority_score": 0,
+      "disposition": "abandoned",
+      "child": "甲卷",
+      "target_segment": {
+        "start": 170,
+        "end": 260
+      },
+      "length": 90,
+      "state": "blocked",
+      "abandon_or_limit_reasons": [
+        "重大疵点禁保：该段由重大疵点安全边距锁定，复检无论结论如何都不能解除，只能修剪/降级处理。"
+      ],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/甲卷/2",
+        "losses_row": "losses/甲卷"
+      },
+      "execution_rank": null
+    },
+    {
+      "order_id": "WO-06",
+      "kind": "excluded_no_recheck",
+      "priority_score": 0,
+      "disposition": "abandoned",
+      "child": "乙卷",
+      "target_segment": {
+        "start": 740,
+        "end": 830
+      },
+      "length": 90,
+      "state": "mixed",
+      "abandon_or_limit_reasons": [
+        "双因段：同时落在重大疵点安全边距与缺检窗口内。复检最多消除缺检因，重大疵点因仍在，整段依旧禁保；不得与纯盲域混为同一类返检目标。"
+      ],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/乙卷/2",
+        "losses_row": "losses/乙卷"
+      },
+      "execution_rank": null
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "subject": "覆膜卷-27",
+  "baseline_packet": "00a4abca91f91c4855b7b2bcdb42c120c34e4df2dd5f50761971a6a1111a89f3",
+  "conflict_packet": "b1f955ed7943b6aad96196abd510378b82f32c5f7659a8db95cbdbf606082419",
+  "rows": [
+    {
+      "origin_defect_id": "亮线",
+      "transfer_id": "乙卷/亮线",
+      "child": "乙卷",
+      "baseline_state": "clear",
+      "baseline_label": "未见疵点",
+      "conflict_state": "marked",
+      "conflict_label": "有标记",
+      "baseline_grade": "major",
+      "conflict_grade": "minor",
+      "contradiction": "同一母卷疵点「亮线」在 乙卷 的分片，基线快照复核为「未见疵点」，对照快照复核为「有标记」；且两版疵点分级不同，需一次返检统一结论。",
+      "evidence_sources": {
+        "baseline_defect_review": "defect_review/乙卷/亮线",
+        "conflict_defect_review": "defect_review/乙卷/亮线",
+        "baseline_packet": "00a4abca91f91c4855b7b2bcdb42c120c34e4df2dd5f50761971a6a1111a89f3",
+        "conflict_packet": "b1f955ed7943b6aad96196abd510378b82f32c5f7659a8db95cbdbf606082419"
+      }
+    },
+    {
+      "origin_defect_id": null,
+      "transfer_id": null,
+      "child": "乙卷",
+      "baseline_state": "blind",
+      "conflict_state": "covered",
+      "contradiction": "子卷「乙卷」走卷覆盖口径不一致：基线缺口 [[740, 900]]（缺少可用数据），对照缺口 []（已覆盖）。盲域是否仍存在需现场确认。",
+      "evidence_sources": {
+        "baseline_coverage": "coverage/乙卷",
+        "conflict_coverage": "coverage/乙卷"
+      }
+    }
+  ]
+}

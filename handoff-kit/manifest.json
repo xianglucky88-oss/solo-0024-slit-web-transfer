@@ -1,0 +1,55 @@
+{
+  "kit": "离线返检资料包",
+  "subject": "覆膜卷-27",
+  "built_at_utc": "2026-11-22T23:45:31+00:00",
+  "build_date": "2026-11-22",
+  "baseline_input": "review-sample",
+  "conflict_input": "review-alternate",
+  "baseline_packet_digest": "00a4abca91f91c4855b7b2bcdb42c120c34e4df2dd5f50761971a6a1111a89f3",
+  "conflict_packet_digest": "b1f955ed7943b6aad96196abd510378b82f32c5f7659a8db95cbdbf606082419",
+  "files": [
+    {
+      "file": "01-origin-defect-ledger.json",
+      "sha256": "3980bc4da4cda8497af0209de7b09220cc9452e046d984366651ad5772becc2b"
+    },
+    {
+      "file": "02-scanned-regions.json",
+      "sha256": "0b6a8e2dca01452d7dd534182d3d26f24c187842bf871a79b3b6f26f165b309c"
+    },
+    {
+      "file": "03-exclusion-classification.json",
+      "sha256": "a77aa2c48eed745ce6df20569ea5949c5895874778578f810423848ce5156add"
+    },
+    {
+      "file": "04-position-cards.json",
+      "sha256": "a6a903162ec2082536ef0023f5a00937b28d3b75730bfd2c6463041496c9e308"
+    },
+    {
+      "file": "05-contradictions.json",
+      "sha256": "4b48059a89b43e07bde5854d800f7ea71053e559a80905727ea6bcb3628a8731"
+    },
+    {
+      "file": "06-recheck-work-orders.json",
+      "sha256": "7cc9149d06a5889ecaefbd2fc456c3fea18c7c6824d21c118575fc55fe7367b7"
+    },
+    {
+      "file": "07-contingency-handoff.json",
+      "sha256": "900c2fa9bee7d5fbe5e4668c1f97ddac18a656120f2103457bf040b1f07eeaab"
+    },
+    {
+      "file": "packets/sample.packet.json",
+      "sha256": "f1d1a69f1c064591d3a846caa7653df6089eedd2d43bc3c81969b6fea0481917",
+      "source_digest": "3bddde9d58fdc93bd89952cdf9e0232c3fff649c05a5f80df2628058f8b55905"
+    },
+    {
+      "file": "packets/review-sample.packet.json",
+      "sha256": "00a4abca91f91c4855b7b2bcdb42c120c34e4df2dd5f50761971a6a1111a89f3",
+      "source_digest": "27b341ab4b6fed01a83878a3d8e1a7794693047f0920094ffd908159981626ca"
+    },
+    {
+      "file": "packets/review-alternate.packet.json",
+      "sha256": "b1f955ed7943b6aad96196abd510378b82f32c5f7659a8db95cbdbf606082419",
+      "source_digest": "bc85f35ac77abe24202ed27846ae6913cfcbb760cb1c7808f8fabaa76132f252"
+    }
+  ]
+}

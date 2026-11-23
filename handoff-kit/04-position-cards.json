@@ -1,0 +1,136 @@
+{
+  "subject": "覆膜卷-27",
+  "note": "同一物理位置的子卷本地坐标与母卷坐标对照，反绕已镜像还原。",
+  "cards": [
+    {
+      "card": "query_trace",
+      "child": "乙卷",
+      "winding": "reverse",
+      "child_window": {
+        "start": 760,
+        "end": 815
+      },
+      "master_window": {
+        "start": 185,
+        "end": 240
+      },
+      "matched_origin_defects": [
+        "亮线"
+      ],
+      "state": "marked",
+      "evidence_sources": {
+        "trace_row": "trace/乙卷",
+        "input_query": "query"
+      }
+    },
+    {
+      "card": "inspection_origin/乙亮线窗",
+      "child": "乙卷",
+      "winding": "reverse",
+      "inspection_id": "乙亮线窗",
+      "master_rect": {
+        "x0": 52,
+        "x1": 60,
+        "y0": 180,
+        "y1": 250
+      },
+      "inspection_result": "clear",
+      "inspection_result_label": "未见疵点",
+      "matched_origin_defects": [
+        "亮线"
+      ],
+      "evidence_sources": {
+        "origin_row": "origin/乙亮线窗"
+      }
+    },
+    {
+      "card": "inspection_origin/乙交叠窗",
+      "child": "乙卷",
+      "winding": "reverse",
+      "inspection_id": "乙交叠窗",
+      "master_rect": {
+        "x0": 52,
+        "x1": 60,
+        "y0": 170,
+        "y1": 210
+      },
+      "inspection_result": "clear",
+      "inspection_result_label": "未见疵点",
+      "matched_origin_defects": [
+        "亮线"
+      ],
+      "evidence_sources": {
+        "origin_row": "origin/乙交叠窗"
+      }
+    },
+    {
+      "card": "fragment_locate/甲卷/亮线",
+      "child": "甲卷",
+      "winding": "forward",
+      "origin_defect_id": "亮线",
+      "child_rect": {
+        "x0": 40,
+        "x1": 43,
+        "y0": 180,
+        "y1": 250
+      },
+      "master_rect": {
+        "x0": 45,
+        "x1": 60,
+        "y0": 180,
+        "y1": 250
+      },
+      "grade": "major",
+      "evidence_sources": {
+        "transfer_row": "transfer/甲卷/亮线",
+        "input_defect": "亮线"
+      }
+    },
+    {
+      "card": "fragment_locate/甲卷/擦痕",
+      "child": "甲卷",
+      "winding": "forward",
+      "origin_defect_id": "擦痕",
+      "child_rect": {
+        "x0": 15,
+        "x1": 25,
+        "y0": 410,
+        "y1": 430
+      },
+      "master_rect": {
+        "x0": 20,
+        "x1": 30,
+        "y0": 410,
+        "y1": 430
+      },
+      "grade": "minor",
+      "evidence_sources": {
+        "transfer_row": "transfer/甲卷/擦痕",
+        "input_defect": "擦痕"
+      }
+    },
+    {
+      "card": "fragment_locate/乙卷/亮线",
+      "child": "乙卷",
+      "winding": "reverse",
+      "origin_defect_id": "亮线",
+      "child_rect": {
+        "x0": 35,
+        "x1": 43,
+        "y0": 750,
+        "y1": 820
+      },
+      "master_rect": {
+        "x0": 45,
+        "x1": 60,
+        "y0": 180,
+        "y1": 250
+      },
+      "grade": "major",
+      "evidence_sources": {
+        "transfer_row": "transfer/乙卷/亮线",
+        "input_defect": "亮线"
+      }
+    }
+  ]
+}

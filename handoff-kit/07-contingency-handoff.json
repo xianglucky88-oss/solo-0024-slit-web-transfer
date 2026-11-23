@@ -1,0 +1,127 @@
+{
+  "subject": "覆膜卷-27",
+  "plan_a_child_local": {
+    "condition": "现场可在子卷工位按子卷本地坐标/计米刻度定位。",
+    "steps": [
+      {
+        "order_id": "WO-01",
+        "child": "甲卷",
+        "origin_defect_id": "亮线",
+        "locate_by": "子卷本地坐标(幅向x,走卷y)",
+        "child_rect": {
+          "x0": 40,
+          "x1": 43,
+          "y0": 180,
+          "y1": 250
+        },
+        "note": "用子卷本地矩形找点，适合只能在子卷工位操作的现场。"
+      },
+      {
+        "order_id": "WO-01",
+        "child": "乙卷",
+        "origin_defect_id": "亮线",
+        "locate_by": "子卷本地坐标(幅向x,走卷y)",
+        "child_rect": {
+          "x0": 35,
+          "x1": 43,
+          "y0": 750,
+          "y1": 820
+        },
+        "note": "用子卷本地矩形找点，适合只能在子卷工位操作的现场。"
+      },
+      {
+        "order_id": "WO-04",
+        "child": "乙卷",
+        "locate_by": "子卷本地走卷刻度",
+        "child_window": [
+          830,
+          900
+        ],
+        "note": "按子卷自身计米器/刻度定位，无需母卷台账。"
+      }
+    ]
+  },
+  "plan_b_master_ledger": {
+    "condition": "现场可查母卷台账、按母卷坐标定位（反绕子卷需镜像还原）。",
+    "steps": [
+      {
+        "order_id": "WO-01",
+        "child": "甲卷",
+        "origin_defect_id": "亮线",
+        "locate_by": "母卷坐标(幅向x,走卷y)",
+        "master_rect": {
+          "x0": 45,
+          "x1": 60,
+          "y0": 180,
+          "y1": 250
+        },
+        "winding": "forward",
+        "note": "在母卷台账按原疵点矩形找点，反绕子卷需两轴镜像还原。"
+      },
+      {
+        "order_id": "WO-01",
+        "child": "乙卷",
+        "origin_defect_id": "亮线",
+        "locate_by": "母卷坐标(幅向x,走卷y)",
+        "master_rect": {
+          "x0": 45,
+          "x1": 60,
+          "y0": 180,
+          "y1": 250
+        },
+        "winding": "reverse",
+        "note": "在母卷台账按原疵点矩形找点，反绕子卷需两轴镜像还原。"
+      },
+      {
+        "order_id": "WO-04",
+        "child": "乙卷",
+        "locate_by": "母卷纵向坐标",
+        "master_window": [
+          100,
+          170
+        ],
+        "winding": "reverse",
+        "note": "在母卷台账按纵向区间定位，再依绕向还原到该子卷。"
+      }
+    ]
+  },
+  "plan_c_linear_only": {
+    "condition": "扫描设备只能做走卷一维扫查、无幅面 2D 复检能力。",
+    "steps": [
+      {
+        "order_id": "WO-01",
+        "child": "甲卷",
+        "origin_defect_id": "亮线",
+        "linear_window": [
+          180,
+          250
+        ],
+        "winding": "forward",
+        "capability": "一维走卷复检",
+        "note": "只能在该子卷走卷向上定位母卷疵点带，幅向归属需回工位后补 2D 复检。"
+      },
+      {
+        "order_id": "WO-01",
+        "child": "乙卷",
+        "origin_defect_id": "亮线",
+        "linear_window": [
+          750,
+          820
+        ],
+        "winding": "reverse",
+        "capability": "一维走卷复检",
+        "note": "只能在该子卷走卷向上定位母卷疵点带，幅向归属需回工位后补 2D 复检。"
+      },
+      {
+        "order_id": "WO-04",
+        "child": "乙卷",
+        "linear_window": [
+          830,
+          900
+        ],
+        "capability": "一维走卷复检",
+        "note": "仅确认该走卷段是否覆盖；不能判定幅向 2D 位置，结论保守。"
+      }
+    ]
+  }
+}

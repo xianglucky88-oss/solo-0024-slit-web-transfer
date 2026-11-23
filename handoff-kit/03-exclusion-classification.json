@@ -1,0 +1,114 @@
+{
+  "subject": "覆膜卷-27",
+  "recoverable_by_recheck": [
+    {
+      "segment_id": "乙卷/3",
+      "child": "乙卷",
+      "start": 830,
+      "end": 900,
+      "length": 70,
+      "state": "blind",
+      "state_label": "缺少可用数据",
+      "major_evidence": [],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/乙卷/3",
+        "losses_row": "losses/乙卷"
+      },
+      "reason": "仅缺检：该段无重大疵点证据，补检覆盖且未见重大疵点即可转可保。"
+    }
+  ],
+  "irreparable_major": [
+    {
+      "segment_id": "甲卷/2",
+      "child": "甲卷",
+      "start": 170,
+      "end": 260,
+      "length": 90,
+      "state": "blocked",
+      "state_label": "阻断",
+      "major_evidence": [
+        "亮线"
+      ],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/甲卷/2",
+        "losses_row": "losses/甲卷"
+      },
+      "reason": "重大疵点禁保：该段由重大疵点安全边距锁定，复检无论结论如何都不能解除，只能修剪/降级处理。"
+    },
+    {
+      "segment_id": "乙卷/2",
+      "child": "乙卷",
+      "start": 740,
+      "end": 830,
+      "length": 90,
+      "state": "mixed",
+      "state_label": "缺检且有重大疵点",
+      "major_evidence": [
+        "亮线"
+      ],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/乙卷/2",
+        "losses_row": "losses/乙卷"
+      },
+      "reason": "双因段：同时落在重大疵点安全边距与缺检窗口内。复检最多消除缺检因，重大疵点因仍在，整段依旧禁保；不得与纯盲域混为同一类返检目标。"
+    }
+  ],
+  "eligible": [
+    {
+      "segment_id": "甲卷/1",
+      "child": "甲卷",
+      "start": 0,
+      "end": 170,
+      "length": 170,
+      "state": "eligible",
+      "state_label": "可保留",
+      "major_evidence": [],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/甲卷/1",
+        "losses_row": "losses/甲卷"
+      }
+    },
+    {
+      "segment_id": "甲卷/3",
+      "child": "甲卷",
+      "start": 260,
+      "end": 1000,
+      "length": 740,
+      "state": "eligible",
+      "state_label": "可保留",
+      "major_evidence": [],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/甲卷/3",
+        "losses_row": "losses/甲卷"
+      }
+    },
+    {
+      "segment_id": "乙卷/1",
+      "child": "乙卷",
+      "start": 0,
+      "end": 740,
+      "length": 740,
+      "state": "eligible",
+      "state_label": "可保留",
+      "major_evidence": [],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/乙卷/1",
+        "losses_row": "losses/乙卷"
+      }
+    },
+    {
+      "segment_id": "乙卷/4",
+      "child": "乙卷",
+      "start": 900,
+      "end": 1000,
+      "length": 100,
+      "state": "eligible",
+      "state_label": "可保留",
+      "major_evidence": [],
+      "evidence_sources": {
+        "exclusion_row": "exclusion/乙卷/4",
+        "losses_row": "losses/乙卷"
+      }
+    }
+  ]
+}

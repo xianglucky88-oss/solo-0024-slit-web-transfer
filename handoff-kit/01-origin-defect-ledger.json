@@ -1,0 +1,130 @@
+{
+  "subject": "覆膜卷-27",
+  "generated_from": "review-sample",
+  "dedup_rule": "按母卷原始疵点合并所有子卷/边料分片，每疵点仅一条。",
+  "rows": [
+    {
+      "origin_defect_id": "亮线",
+      "grade": "major",
+      "grade_label": "重大疵点",
+      "master_rect": {
+        "x0": 45,
+        "x1": 60,
+        "y0": 180,
+        "y1": 250
+      },
+      "spread_state": "split",
+      "spread_label": "跨带分摊",
+      "width": 15,
+      "kept_width": 11,
+      "lost_width": 4,
+      "child_fragments": [
+        {
+          "transfer_id": "甲卷/亮线",
+          "child": "甲卷",
+          "child_rect": {
+            "x0": 40,
+            "x1": 43,
+            "y0": 180,
+            "y1": 250
+          },
+          "grade": "major",
+          "grade_label": "重大疵点"
+        },
+        {
+          "transfer_id": "乙卷/亮线",
+          "child": "乙卷",
+          "child_rect": {
+            "x0": 35,
+            "x1": 43,
+            "y0": 750,
+            "y1": 820
+          },
+          "grade": "major",
+          "grade_label": "重大疵点"
+        }
+      ],
+      "scrap_destinations": [
+        "edge-2"
+      ],
+      "evidence_sources": {
+        "input_defect": "亮线",
+        "transfer_rows": [
+          "甲卷/亮线",
+          "乙卷/亮线"
+        ],
+        "shared_row": "shared/亮线",
+        "scrap_rows": [
+          "scrap/edge-2"
+        ]
+      }
+    },
+    {
+      "origin_defect_id": "擦痕",
+      "grade": "minor",
+      "grade_label": "轻微疵点",
+      "master_rect": {
+        "x0": 20,
+        "x1": 30,
+        "y0": 410,
+        "y1": 430
+      },
+      "spread_state": "kept",
+      "spread_label": "保留",
+      "width": 10,
+      "kept_width": 10,
+      "lost_width": 0,
+      "child_fragments": [
+        {
+          "transfer_id": "甲卷/擦痕",
+          "child": "甲卷",
+          "child_rect": {
+            "x0": 15,
+            "x1": 25,
+            "y0": 410,
+            "y1": 430
+          },
+          "grade": "minor",
+          "grade_label": "轻微疵点"
+        }
+      ],
+      "scrap_destinations": [],
+      "evidence_sources": {
+        "input_defect": "擦痕",
+        "transfer_rows": [
+          "甲卷/擦痕"
+        ],
+        "shared_row": "shared/擦痕",
+        "scrap_rows": []
+      }
+    },
+    {
+      "origin_defect_id": "边刺",
+      "grade": "minor",
+      "grade_label": "轻微疵点",
+      "master_rect": {
+        "x0": 0,
+        "x1": 5,
+        "y0": 100,
+        "y1": 103
+      },
+      "spread_state": "scrap",
+      "spread_label": "边料",
+      "width": 5,
+      "kept_width": 0,
+      "lost_width": 5,
+      "child_fragments": [],
+      "scrap_destinations": [
+        "edge-1"
+      ],
+      "evidence_sources": {
+        "input_defect": "边刺",
+        "transfer_rows": [],
+        "shared_row": "shared/边刺",
+        "scrap_rows": [
+          "scrap/edge-1"
+        ]
+      }
+    }
+  ]
+}

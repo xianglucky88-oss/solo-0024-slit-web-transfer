@@ -1,0 +1,115 @@
+{
+  "subject": "覆膜卷-27",
+  "note": "走卷长度覆盖与幅面2D复检分开登记；重复窗按并集只计一次。",
+  "rows": [
+    {
+      "child": "甲卷",
+      "winding": "forward",
+      "winding_label": "正绕",
+      "length_observed": 1000,
+      "length_total": 1000,
+      "length_gaps": [],
+      "length_state": "covered",
+      "length_state_label": "已覆盖",
+      "length_check_windows": [
+        {
+          "check_id": "复检甲一",
+          "child": "甲卷",
+          "start": 0,
+          "end": 620
+        },
+        {
+          "check_id": "复检甲二",
+          "child": "甲卷",
+          "start": 580,
+          "end": 1000
+        }
+      ],
+      "face_covered_area": 0,
+      "face_total_area": 43000,
+      "face_state": "blind",
+      "face_state_label": "缺少可用数据",
+      "face_inspection_windows": [],
+      "evidence_sources": {
+        "coverage_row": "coverage/甲卷",
+        "checks": [
+          "复检甲一",
+          "复检甲二"
+        ],
+        "face_row": "face/甲卷",
+        "inspections": []
+      }
+    },
+    {
+      "child": "乙卷",
+      "winding": "reverse",
+      "winding_label": "反绕",
+      "length_observed": 840,
+      "length_total": 1000,
+      "length_gaps": [
+        [
+          740,
+          900
+        ]
+      ],
+      "length_state": "blind",
+      "length_state_label": "缺少可用数据",
+      "length_check_windows": [
+        {
+          "check_id": "复检乙一",
+          "child": "乙卷",
+          "start": 0,
+          "end": 740
+        },
+        {
+          "check_id": "复检乙二",
+          "child": "乙卷",
+          "start": 900,
+          "end": 1000
+        }
+      ],
+      "face_covered_area": 640,
+      "face_total_area": 43000,
+      "face_state": "partial",
+      "face_state_label": "部分幅面复检",
+      "face_inspection_windows": [
+        {
+          "inspection_id": "乙亮线窗",
+          "child": "乙卷",
+          "rect": {
+            "x0": 35,
+            "x1": 43,
+            "y0": 750,
+            "y1": 820
+          },
+          "result": "clear",
+          "result_label": "未见疵点"
+        },
+        {
+          "inspection_id": "乙交叠窗",
+          "child": "乙卷",
+          "rect": {
+            "x0": 35,
+            "x1": 43,
+            "y0": 790,
+            "y1": 830
+          },
+          "result": "clear",
+          "result_label": "未见疵点"
+        }
+      ],
+      "evidence_sources": {
+        "coverage_row": "coverage/乙卷",
+        "checks": [
+          "复检乙一",
+          "复检乙二"
+        ],
+        "face_row": "face/乙卷",
+        "inspections": [
+          "乙亮线窗",
+          "乙交叠窗"
+        ]
+      }
+    }
+  ]
+}
