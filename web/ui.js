@@ -1,6 +1,7 @@
 import { draw } from '/chart.js';
 import { renderRows } from '/result-table.js';
 import { versionPanel } from '/version-panel.js';
+import { initPlanning } from '/planning-panel.js';
 
 const $ = (id) => document.getElementById(id);
 const base = document.body.dataset.prefix;
@@ -126,6 +127,7 @@ guarded(async () => {
     renderRows(model, rows, ['id', 'stage', 'state', 'before', 'after'], '差异', { ...model.columns, before: '参照版本', after: '目标版本' });
     note(`已比较 ${left.slice(0, 8)} 与 ${right.slice(0, 8)}`);
   });
+  initPlanning(request, guarded, note);
   await versions.refresh();
   await choose('sample');
 });

@@ -1,4 +1,4 @@
-from . import artifacts, domain, reconcile, rules
+from . import artifacts, domain, planning, reconcile, rules
 from .review import analyze_review
 from .contract import ContractError, ident, obj
 
@@ -23,6 +23,8 @@ class Workbench:
     def execute(self, command, body):
         if command == 'evaluate':
             return self.analyze(body)
+        if command == 'knife-plan':
+            return planning.plan(body)
         if command == 'seal':
             return self.archive.seal(self.analyze(body))
         if command == 'compare':

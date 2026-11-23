@@ -35,3 +35,15 @@ dialog{border:1px solid var(--line);border-radius:6px;color:var(--ink);padding:1
 
 .review-pane { margin: .5rem 0; }
 .review-pane > summary { cursor: pointer; font-weight: 650; padding: .45rem 0; }
+
+.planning-pane { border-top: 1px solid var(--line); padding-top: 12px; }
+.planning-pane > summary { cursor: pointer; font-weight: 650; color: var(--accent); }
+.planning-tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+.planning-diagnosis { background: var(--faint); border: 1px solid var(--line); border-radius: 5px; padding: 10px 14px; margin: 12px 0; }
+.planning-diagnosis h3 { margin: 2px 0 6px; font-size: 15px; }
+.planning-diagnosis ul { margin: 0; padding-left: 18px; }
+.trial-notice { color: var(--chart); font-weight: 650; margin: 8px 0 2px; }
+.planning-pane .result-shell { margin-top: 14px; }
+.planning-pane td span[data-state="trial"] { color: var(--alt); font-weight: 700; }
+.planning-pane td span[data-state="false"] { color: var(--chart); font-weight: 700; }
+.planning-pane td span[data-state="true"] { color: var(--accent); font-weight: 700; }

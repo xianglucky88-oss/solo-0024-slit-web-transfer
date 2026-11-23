@@ -86,6 +86,21 @@
       "id": "version_panel",
       "path": "web/version-panel.js",
       "responsibility": "封存选择、版本读取、比对和下载"
+    },
+    {
+      "id": "planning",
+      "path": "slitweb/planning.py",
+      "responsibility": "离线刀位试算：枚举刀位格上的拼刀布局并核算疵点净长损失"
+    },
+    {
+      "id": "planning_panel",
+      "path": "web/planning-panel.js",
+      "responsibility": "离线试算请求、布局择优表与等宽不等价对照"
+    },
+    {
+      "id": "check_planning",
+      "path": "slitweb/check_planning.py",
+      "responsibility": "刀位试算的有界 HTTP 与纯函数核对"
     }
   ],
   "workflows": [
@@ -489,6 +504,29 @@
         "salvage",
         "artifacts",
         "result_table",
+        "intervals"
+      ]
+    },
+    {
+      "id": "knife_plan",
+      "name": "离线刀位试算",
+      "entry": "POST /slitweb/api/knife-plan",
+      "steps": [
+        "在可用刀位格上枚举满足净幅与最少条数、且避开禁刀区间的刀位序列",
+        "按保住长段或减少幅宽边料择优，逐带按转印与两端预留核算重大疵点净长损失",
+        "等宽布局对照命中疵点、净长损失和可保长段，说明为何不等价；无解时给出可复核约束",
+        "备选一律标记试算状态，未经复检不得放行，且试算不写成果库"
+      ],
+      "success": "样例枚举 13 套布局，等宽布局 布局1|布局12 因疵点分摊不同判为不等价",
+      "failure": "刀位格重复、落入禁刀区间或净幅超幅返回 400；无解返回 infeasible 与约束说明",
+      "verification": "python3 -m slitweb.check_planning",
+      "module_ids": [
+        "server",
+        "contract",
+        "service",
+        "planning",
+        "planning_panel",
+        "check_planning",
         "intervals"
       ]
     }

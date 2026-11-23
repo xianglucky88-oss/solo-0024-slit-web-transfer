@@ -27,6 +27,7 @@
 | 跨版本比较 | `POST /slitweb/api/compare` | 异版产生差异，同版无差异，跨对象拒绝 |
 | 封存版本 | `POST /slitweb/api/seal` | 同输入仅写入一次，旧版不随对照改变 |
 | 导出交接 | `GET /slitweb/api/export/<摘要>` | 下载头有效且内容完整保留历史快照 |
+| 离线刀位试算 | `POST /slitweb/api/knife-plan` | 等宽布局 布局1\|布局12 因疵点分摊不同判为不等价 |
 
 ## 职责
 
@@ -53,3 +54,11 @@
 - `runs` 连续可利用段：合并相邻可保段但不跨禁保区，记录母卷纵向范围。
 - `yield_plan` 短卷产量：各连续段独立容纳定尺与段内切口留量，绝不跨段拼接。
 - `losses` 分因长度核账：重大、缺检、双因三类长度互斥，同可保长度核对整卷。
+
+## 离线刀位试算
+
+`POST /slitweb/api/knife-plan` 是独立于封样流程的本机试算入口，不读取复检结论、不写成果库，输出的每套布局固定为 `trial` 状态并附「未经复检不得放行」口径。输入顶层以 `id` 标识，字段为 `slots`（刀位格坐标，至少 2 个且不得重复）、`forbidden`（禁刀幅向区间，并集后任何刀位格不得落在其中）、`order.net_width` 与 `order.minimum_strips`、`trial.transfer_margin`（实际转印预留）和 `trial.reserve_margin`（两端预留）、`defects`（含 minor/major 的矩形），`ranking` 取 `length` 或 `trim`。
+
+枚举只在刀位格之间选刀：相邻下刀点间距不小于净幅，刀数至少为条数加一。每个候选带的重大疵点按 `[y0-转印-预留, y1+转印+预留]` 扩张并在走卷轴取并集，重叠疵点只计一次封锁长度；`longest_run` 是该带最长连续可保段，布局的 `longest_run` 取各带最小值。轻微疵点登记在 `minor` 上，不参与封锁。`length` 择优先保最短板可保长段，`trim` 择优先降幅宽边料（两侧边料加带内富余）。
+
+`equal_width_pairs` 对照带宽序列完全相同的两套布局，逐条列出走卷净长损失、可保长段、命中重大疵点和边料差异；全部相同才标 `equivalent`。无可行序列时返回 `state=infeasible`、空布局列表和 `diagnosis`（净幅容量账、最长可行刀位格链），非法输入沿用 400 合同错误。

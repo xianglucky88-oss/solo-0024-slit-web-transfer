@@ -43,6 +43,28 @@
       </div>
     </section>
     <details id="source-pane" class="input-pane"><summary>来源数据</summary><textarea id="source" spellcheck="false" aria-label="观测来源数据"></textarea></details>
+    <details id="planning-pane" class="input-pane planning-pane">
+      <summary>离线刀位试算（保住原净幅的拼刀备选）</summary>
+      <div class="planning-tools">
+        <button id="planning-sample" type="button">载入试算样例</button>
+        <button id="planning-infeasible" type="button">载入无解样例</button>
+        <button id="planning-run" class="primary" type="button">开始试算</button>
+      </div>
+      <textarea id="planning-source" spellcheck="false" aria-label="刀位试算请求"></textarea>
+      <div id="planning-diagnosis" class="planning-diagnosis"></div>
+      <section class="result-shell" aria-label="试算布局">
+        <div class="results-title"><h2 id="planning-layout-title">可行布局</h2></div>
+        <div class="table-scroll"><table id="planning-layout-table"></table></div>
+      </section>
+      <section class="result-shell" aria-label="试算条带">
+        <div class="results-title"><h2>逐带疵点与净长核算</h2></div>
+        <div class="table-scroll"><table id="planning-strip-table"></table></div>
+      </section>
+      <section class="result-shell" aria-label="等宽布局对照">
+        <div class="results-title"><h2 id="planning-pair-title">等宽布局为何不等价</h2></div>
+        <div class="table-scroll"><table id="planning-pair-table"></table></div>
+      </section>
+    </details>
   </main>
   <dialog id="detail" aria-labelledby="detail-title"><form method="dialog"><h2 id="detail-title"></h2><button>关闭</button></form><div id="detail-content"></div></dialog>
 </body>
