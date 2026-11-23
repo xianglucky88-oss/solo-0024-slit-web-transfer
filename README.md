@@ -25,3 +25,13 @@ python3 -m slitweb.check_flow export
 ### 扩展复核
 
 使用「复核样例」，随后在「扩展复核」切换各项结果。有效输入见 `examples/review-sample.json` 与 `examples/review-alternate.json`。例如运行 `python3 -m slitweb.check_flow face` 可核对派生结果、拒绝非法复核和基础版本兼容性。
+
+### 窄幅交接评议
+
+`analysis/segment-handover-review.md` 讨论「只交母卷一段」的两种读法（整幅定尺分段 / 限定幅域取料），`examples/segment-sample.json` 是可重算的例子：一个 3 mm 宽的重大疵点，加一段与疵点纵向预留重叠 10 mm 的复检缺口。复算不需要运行服务：
+
+```sh
+python3 -I analysis/recompute_segment.py
+```
+
+脚本只用未改动的归约管线和现有输出（含 `origin`）重算两种读法的数字，不新增功能，也不改写历史包。
